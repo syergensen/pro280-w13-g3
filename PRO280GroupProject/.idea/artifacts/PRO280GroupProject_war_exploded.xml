@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="PRO280GroupProject:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/PRO280GroupProject_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="PRO280GroupProject/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="PRO280GroupProject" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
