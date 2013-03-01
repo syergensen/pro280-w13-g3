@@ -12,14 +12,17 @@
 1. When did you start attending Neumont:<br/>
 <select name="quarter">
     <option value="fall">Fall Quarter</option>
+    <option value="">Pull quarter items from database</option>
 </select>
 <select name="year">
-
+    <option value="2013">2013</option>
+    <option value="">Iterate through necessary years</option>
 </select>
 <br/>
 2. Which program are you enrolled in:<br/>
 <select name="program">
     <option value="bscs">BSCS</option>
+    <option value="">Pull program items from database</option>
 </select>
 <br/>
 3. How many additional quarters do you expect to attend Neumont:<br/>
