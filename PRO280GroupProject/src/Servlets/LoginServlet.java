@@ -13,7 +13,7 @@ import java.io.IOException;
  * Date: 2/27/13
  * Time: 5:58 PM -- Created
  */
-@WebServlet("Login.do")
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //I am uncertain as to what needs to happen here
@@ -21,6 +21,16 @@ public class LoginServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //commented to bypass login for now
 
+//        if(request.getParameter("username")!=null)
+//        {
+//            request.getRequestDispatcher(getServletContext().getInitParameter("start")).forward(request, response);
+//        }
+//        else
+//        {
+//            response.sendRedirect("./");
+//        }
+        request.getRequestDispatcher(getServletContext().getInitParameter("start")).forward(request, response);
     }
 }

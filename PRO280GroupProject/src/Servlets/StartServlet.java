@@ -13,16 +13,23 @@ import java.io.IOException;
  * Date: 2/27/13
  * Time: 6:21 PM -- Created
  */
-@WebServlet("Start.do")
+@WebServlet("/start.do")
 public class StartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //If agreed to terms and service
-        response.sendRedirect("School.do");
+        if(request.getParameter("agree")==null)
+        {
+            response.sendRedirect("./");
+        }
         //Else redirect back to index.jsp
+        else
+        {
+            request.getRequestDispatcher(getServletContext().getInitParameter("school")).forward(request, response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Pull data from model about terms and service.
-        request.getRequestDispatcher("Start.jsp").forward(request, response);
+        request.getRequestDispatcher("start.jsp").forward(request, response);
     }
 }

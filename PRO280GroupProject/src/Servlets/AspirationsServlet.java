@@ -14,7 +14,7 @@ import java.io.IOException;
  * Time: 6:37 PM
  * To change this template use File | Settings | File Templates.
  */
-@WebServlet("Aspirations.do")
+@WebServlet("/Aspirations.do")
 public class AspirationsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //PreferredRegion
@@ -28,6 +28,6 @@ public class AspirationsServlet extends HttpServlet {
         // PrefferedRegions, CarUsed, CarFuelEconomies, CarRating,
         // and LivingConditionOptions.
         // request.getRequestDispatcher("Aspirations.jsp").forward(request,responce);
-        response.sendRedirect("Aspiration.jsp");
+        response.sendRedirect("aspiration.jsp");
     }
 }

@@ -13,7 +13,7 @@ import java.io.IOException;
  * Date: 2/27/13
  * Time: 6:33 PM -- Created
  */
-@WebServlet("LifeStyle.do")
+@WebServlet("/LifeStyle.do")
 public class LifeStyleServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // HousingSituation
@@ -29,6 +29,6 @@ public class LifeStyleServlet extends HttpServlet {
         // Possible to have to request attribute:
         // HousingSituationTypes
         // request.getRequestDispatcher("LifeStyle.jsp").forward(request, responce);
-        response.sendRedirect("LifeStyle.jsp");
+        response.sendRedirect("lifestyle.jsp");
     }
 }

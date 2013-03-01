@@ -13,7 +13,7 @@ import java.io.IOException;
  * Date: 2/27/13
  * Time: 6:28 PM -- Created
  */
-@WebServlet("School.do")
+@WebServlet("/school.do")
 public class SchoolServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //StartingQuarter,StartingYear,SelectedProgram
@@ -29,6 +29,6 @@ public class SchoolServlet extends HttpServlet {
         // Request Attributes for??:
         // Quarters, Programs, "Loan-Types" Strings from static variable in model
         //request.getRequestDispatcher("School.jsp").forward(request,responce);
-        response.sendRedirect("School.jsp");
+        response.sendRedirect("school.jsp");
     }
 }

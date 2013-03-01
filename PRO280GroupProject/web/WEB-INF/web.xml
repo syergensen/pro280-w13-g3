@@ -5,4 +5,24 @@
 		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
            version="2.5">
 
+    <context-param>
+        <param-name>start</param-name>
+        <param-value>/WEB-INF/start.jsp</param-value>
+    </context-param>
+    <context-param>
+        <param-name>school</param-name>
+        <param-value>/WEB-INF/school.jsp</param-value>
+    </context-param>
+    <context-param>
+        <param-name>lifestyle</param-name>
+        <param-value>/WEB-INF/lifestyle.jsp</param-value>
+    </context-param>
+    <context-param>
+        <param-name>aspirations</param-name>
+        <param-value>/WEB-INF/aspirations.jsp</param-value>
+    </context-param>
+    <context-param>
+        <param-name>result</param-name>
+        <param-value>/WEB-INF/result.jsp</param-value>
+    </context-param>
 </web-app>
