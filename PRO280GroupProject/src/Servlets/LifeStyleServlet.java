@@ -13,7 +13,7 @@ import java.io.IOException;
  * Date: 2/27/13
  * Time: 6:33 PM -- Created
  */
-@WebServlet("/LifeStyle.do")
+@WebServlet("/lifeStyle.do")
 public class LifeStyleServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // HousingSituation

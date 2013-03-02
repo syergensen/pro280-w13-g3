@@ -22,7 +22,8 @@ public class SchoolServlet extends HttpServlet {
         //CreditDebtAmount
         //MedicalDebtAmount
         //OutStandingDebtAmount
-        response.sendRedirect("LifeStyle.do");
+
+        request.getRequestDispatcher(getServletContext().getInitParameter("lifestyle")).forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
