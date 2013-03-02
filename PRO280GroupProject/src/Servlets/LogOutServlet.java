@@ -13,11 +13,11 @@ import java.io.IOException;
  * Date: 2/27/13
  * Time: 6:19 PM -- Created
  */
-@WebServlet("/Logout.do")
+@WebServlet("/logout.do")
 public class LogOutServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getSession().invalidate();
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("./");
     }
 }

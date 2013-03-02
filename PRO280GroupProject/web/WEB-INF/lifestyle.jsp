@@ -8,7 +8,7 @@
     <title>Lifestyle</title>
 </head>
 <body>
-<h3><i>These questions will focus on the housing and lifestyle choices while still in school.</i></h3>
+<h2><i>These questions will focus on the housing and lifestyle choices while still in school:</i></h2>
 <br/>
 <form method="post" action="lifeStyle.do">
     <%--Change later to pull from database--%>
@@ -22,7 +22,15 @@
     $<input type="number" name="bills" min="0" step="any">
     <br/>
     2. On average, how many days out of the week do you eat out for lunch?<br/>
-    <input type="range" min="0" max="7">
+    <%--Insert slider ranging 0-7--%>
+    <br/>
+    3. On average, how many days out of the week do you eat out for dinner?<br/>
+    <%--Insert slider ranging 0-7--%>
+    <br/>
+    4. On average, how much do you spend on video games per month?<br/>
+    <%--Insert slider ranging 0-some number--%>
+    <br/>
+    <input type="submit" value="Next Step">
 </form>
 </body>
 </html>

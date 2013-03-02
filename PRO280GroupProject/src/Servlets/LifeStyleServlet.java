@@ -22,13 +22,12 @@ public class LifeStyleServlet extends HttpServlet {
         // DietLunchEatOutWeekly
         // DietDinnerEatOutWeekly
         // MonthlyVideoGameTime
-        response.sendRedirect("Aspirations.do");
+        request.getRequestDispatcher(getServletContext().getInitParameter("aspirations")).forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Possible to have to request attribute:
         // HousingSituationTypes
-        // request.getRequestDispatcher("LifeStyle.jsp").forward(request, responce);
-        response.sendRedirect("lifestyle.jsp");
+        request.getRequestDispatcher(getServletContext().getInitParameter("lifestyle")).forward(request, response);
     }
 }

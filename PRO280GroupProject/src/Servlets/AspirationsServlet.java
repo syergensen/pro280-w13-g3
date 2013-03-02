@@ -14,20 +14,20 @@ import java.io.IOException;
  * Time: 6:37 PM
  * To change this template use File | Settings | File Templates.
  */
-@WebServlet("/Aspirations.do")
+@WebServlet("/aspirations.do")
 public class AspirationsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //PreferredRegion
         //PreferredCarState
         //PrefferedLivingCondition
-        response.sendRedirect("Results.do");
+        request.getRequestDispatcher("/result.do").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // May have to request attribute:
         // PrefferedRegions, CarUsed, CarFuelEconomies, CarRating,
         // and LivingConditionOptions.
-        // request.getRequestDispatcher("Aspirations.jsp").forward(request,responce);
-        response.sendRedirect("aspiration.jsp");
+        request.getRequestDispatcher(getServletContext().getInitParameter("aspirations")).forward(request, response);
+
     }
 }

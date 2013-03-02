@@ -53,7 +53,7 @@
     <div id="loanSlider"></div>
     Loan Information:<br/>
     Total amount of grants/scholarships:
-    $<input type="number" name="grants" min="0.0" step="any">
+    $<input type="number" name="grants" min="0.0" step="any"><br/>
     Interest Rate:
     <input type="number" name="interest" min="0.0" max="100.0" step="any">%
     <br/>

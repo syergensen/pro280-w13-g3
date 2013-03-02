@@ -13,7 +13,7 @@ import java.io.IOException;
  * Date: 2/27/13
  * Time: 6:40 PM   -- Created
  */
-@WebServlet("/Result.do")
+@WebServlet("/result.do")
 public class ResultServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,6 +21,6 @@ public class ResultServlet extends HttpServlet {
         // return results list <String nameType, int dollarValue>
         // Set to attribute : allResults
         // Get QuarterExtra default=0;
-        request.getRequestDispatcher("results.jsp").forward(request, response);
+        request.getRequestDispatcher(getServletContext().getInitParameter("result")).forward(request, response);
     }
 }

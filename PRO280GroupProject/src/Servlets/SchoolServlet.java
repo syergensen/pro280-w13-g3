@@ -29,7 +29,7 @@ public class SchoolServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Request Attributes for??:
         // Quarters, Programs, "Loan-Types" Strings from static variable in model
-        //request.getRequestDispatcher("School.jsp").forward(request,responce);
-        response.sendRedirect("school.jsp");
+        request.getRequestDispatcher(getServletContext().getInitParameter("school")).forward(request, response);
+
     }
 }
