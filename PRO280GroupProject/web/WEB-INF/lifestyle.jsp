@@ -23,6 +23,7 @@
     <input type="radio" name="housing" value="neumont">Neumont University housing<br/>
     <input type="radio" name="housing" value="free">Live with family or friends for free<br/>
     <input type="radio" name="housing" value="rent">Renting an apartment or similar<br/>
+    If you rent:<br/>
     a. How much do you spend monthly for rent?
     $<input type="number" name="rent" min="0" step="any"><br/>
     b. On average, how much per month is spent on utilities/bills?
@@ -30,22 +31,22 @@
     <br/>
     2. On average, how many days out of the week do you eat out for lunch?<br/>
     <%--Insert slider ranging 0-7--%>
-    <label for="LunchDays">Loan Percentage: </label>
-    <input type="text" id="LunchDays" style="border: 0; color: #f6931f; font-weight: bold;">
+    <label for="LunchDays">Days: </label>
+    <input type="text" id="LunchDays" style="border: 0; color: #EA9919; font-weight: bold;">
 
     <div id="LunchSlider" class="slider"></div>
     <br/>
     3. On average, how many days out of the week do you eat out for dinner?<br/>
     <%--Insert slider ranging 0-7--%>
-    <label for="DinnerDays">Loan Percentage: </label>
-    <input type="text" id="DinnerDays" style="border: 0; color: #f6931f; font-weight: bold;">
+    <label for="DinnerDays">Days: </label>
+    <input type="text" id="DinnerDays" style="border: 0; color: #EA9919; font-weight: bold;">
 
     <div id="DinnerSlider" class="slider"></div>
     <br/>
     4. On average, how much do you spend on video games per month?<br/>
     <%--Insert slider ranging 0-some number--%>
-    <label for="VideoGamesBudget">Loan Percentage: </label>
-    <input type="text" id="VideoGamesBudget" style="border: 0; color: #f6931f; font-weight: bold;">
+    <label for="VideoGamesBudget">Money Spent: </label>
+    <input type="text" id="VideoGamesBudget" style="border: 0; color: #EA9919; font-weight: bold;">
 
     <div id="VideoGameSlider" class="slider"></div>
     <br/>

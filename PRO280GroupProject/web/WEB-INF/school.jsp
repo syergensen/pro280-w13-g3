@@ -40,7 +40,7 @@
     <input type="number" name="partTime" value="0" min="0">
     <br/>
     <%--Change later to pull from database--%>
-    4. Please select an approximate ratio of funding provided loans versus out-of-pocket contributions:<br/>
+    4. Please select the ratio of funding provided loans versus out-of-pocket contributions:<br/>
     <%--<input type="radio" name="loanPercent" value="0">100% Out-of-pocket<br/>--%>
     <%--<input type="radio" name="loanPercent" value="25">25%/75% Out-of-pocket/Loans<br/>--%>
     <%--<input type="radio" name="loanPercent" value="50">50%/50% Out-of-pocket/Loans<br/>--%>
@@ -48,7 +48,7 @@
     <%--<input type="radio" name="loanPercent" value="100">100% Loans<br/>--%>
 
     <label for="SliderAmount">Loan Percentage: </label>
-    <input type="text" id="SliderAmount" style="border: 0; color: #f6931f; font-weight: bold;">
+    <input type="text" id="SliderAmount" style="border: 0; color: #EA9919; font-weight: bold;">
 
     <div id="loanSlider"></div>
     Loan Information:<br/>
