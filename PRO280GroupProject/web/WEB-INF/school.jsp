@@ -35,9 +35,9 @@
     <br/>
     3. How many additional quarters do you expect to attend Neumont:<br/>
     Full-time:
-    <input type="number" name="fullTime" value="0" min="0">
+    <input type="number" name="fullTime" value="${school_fullTime}" min="0">
     Part-time:
-    <input type="number" name="partTime" value="0" min="0">
+    <input type="number" name="partTime" value="${school_partTime}" min="0">
     <br/>
     <%--Change later to pull from database--%>
     4. Please select the ratio of funding provided loans versus out-of-pocket contributions:<br/>
@@ -48,23 +48,23 @@
     <%--<input type="radio" name="loanPercent" value="100">100% Loans<br/>--%>
 
     <label for="SliderAmount">Loan Percentage: </label>
-    <input type="text" id="SliderAmount" style="border: 0; color: #EA9919; font-weight: bold;">
+    <input type="text" name="loanPercent" id="SliderAmount" style="border: 0; color: #EA9919; font-weight: bold;">
 
     <div id="loanSlider"></div>
     Loan Information:<br/>
     Total amount of grants/scholarships:
-    $<input type="number" name="grants" min="0.0" step="any"><br/>
+    $<input type="number" name="grants" value="${school_grants}" min="0.0" step="any"><br/>
     Interest Rate:
-    <input type="number" name="interest" min="0.0" max="100.0" step="any">%
+    <input type="number" name="interest" value="${school_interest}" min="0.0" max="100.0" step="any">%
     <br/>
     5. How much (if any) outstanding credit card debt do you have?
-    $<input type="number" name="creditDebt" min="0.0" step="any">
+    $<input type="number" name="creditDebt" value="${school_creditDebt}" min="0.0" step="any">
     <br/>
     6. How much (if any) outstanding medical debt do you have?
-    $<input type="number" name="medicalDebt" min="0.0" step="any">
+    $<input type="number" name="medicalDebt" value="${school_medicalDebt}" min="0.0" step="any">
     <br/>
     7. How much (if any) outstanding loan debt (school, car) do you have?
-    $<input type="number" name="loanDebt" min="0.0" step="any">
+    $<input type="number" name="loanDebt" value="${school_loanDebt}" min="0.0" step="any">
     <br/>
     <input type="submit" value="Next Step">
 
@@ -74,7 +74,7 @@
     <script>
         $(function () {
             $('#loanSlider').slider({
-                min: 0, max: 100, value: 50,
+                min: 0, max: 100, value: ${school_loanPercent},
                 slide: function (event, ui) {
                     $("#SliderAmount").val(ui.value);
                 }

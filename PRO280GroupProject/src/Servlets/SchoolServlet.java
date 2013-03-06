@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -16,12 +17,25 @@ import java.io.IOException;
 @WebServlet("/school.do")
 public class SchoolServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
         //StartingQuarter,StartingYear,SelectedProgram
+        session.setAttribute("school_quarter", request.getParameter("quarter"));
+        session.setAttribute("school_year", request.getParameter("year"));
+        session.setAttribute("school_program", request.getParameter("program"));
         //FullTime,PartTime
+        session.setAttribute("school_fullTime", request.getParameter("fullTime"));
+        session.setAttribute("school_partTime", request.getParameter("partTime"));
         //LoanTypePercentage
+        session.setAttribute("school_loanPercent", request.getParameter("loanPercent"));
+        //Grants/Scholarships,InterestRate
+        session.setAttribute("school_grants", request.getParameter("grants"));
+        session.setAttribute("school_interest", request.getParameter("interest"));
         //CreditDebtAmount
+        session.setAttribute("school_creditDebt", request.getParameter("creditDebt"));
         //MedicalDebtAmount
+        session.setAttribute("school_medicalDebt", request.getParameter("medicalDebt"));
         //OutStandingDebtAmount
+        session.setAttribute("school_loanDebt", request.getParameter("loanDebt"));
 
         request.getRequestDispatcher(getServletContext().getInitParameter("lifestyle")).forward(request, response);
     }
