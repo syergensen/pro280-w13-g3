@@ -12,7 +12,8 @@
 <form method="post" action="aspirations.do">
     1. After graduating Neumont what is your preferred region to live in the United States:
     <select name="region">
-        <option value="newEngland">New England</option>
+        <%--${aspirations_region eq loopVar(rename) ? 'checked' : ''}--%>
+        <option value="newEngland" >New England</option>
         <option value="">Pull regions from database</option>
     </select>
     <br/>

@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -17,9 +18,15 @@ import java.io.IOException;
 @WebServlet("/aspirations.do")
 public class AspirationsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
         //PreferredRegion
+        session.setAttribute("aspirations_region", request.getParameter("region"));
         //PreferredCarState
+        session.setAttribute("aspirations_carCondition", request.getParameter("carCondition"));
+        session.setAttribute("aspirations_carFuelEconomy", request.getParameter("carFuelEconomy"));
+        session.setAttribute("aspirations_carQuality", request.getParameter("carQuality"));
         //PrefferedLivingCondition
+        session.setAttribute("aspirations_house", request.getParameter("house"));
         request.getRequestDispatcher("/result.do").forward(request, response);
     }
 

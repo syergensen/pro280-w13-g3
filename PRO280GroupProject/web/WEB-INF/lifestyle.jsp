@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: cknox
@@ -17,12 +18,13 @@
 <h2><i>These questions will focus on the housing and lifestyle choices while still in school:</i></h2>
 <br/>
 
+<c:if test="${requestScope.error ne null}">${requestScope.error}<br/></c:if>
 <form method="post" action="lifeStyle.do">
     <%--Change later to pull from database--%>
     1. What is your housing situation?<br/>
-    <input type="radio" name="housing" value="neumont">Neumont University housing<br/>
-    <input type="radio" name="housing" value="free">Live with family or friends for free<br/>
-    <input type="radio" name="housing" value="rent">Renting an apartment or similar<br/>
+    <input type="radio" name="housing" value="neumont" ${lifestyle_housing eq 'neumont' ? 'checked' : ''}>Neumont University housing<br/>
+    <input type="radio" name="housing" value="free" ${lifestyle_housing eq 'free' ? 'checked' : ''}>Live with family or friends for free<br/>
+    <input type="radio" name="housing" value="rent" ${lifestyle_housing eq 'rent' ? 'checked' : ''}>Renting an apartment or similar<br/>
     If you rent:<br/>
     a. How much do you spend monthly for rent?
     $<input type="number" name="rent" value="${lifestyle_rent}" min="0" step="any"><br/>
@@ -32,21 +34,21 @@
     2. On average, how many days out of the week do you eat out for lunch?<br/>
     <%--Insert slider ranging 0-7--%>
     <label for="LunchDays">Days: </label>
-    <input type="text" name="lunchDays" value="${lifestyle_lunchDays}" id="LunchDays" style="border: 0; color: #EA9919; font-weight: bold;">
+    <input type="text" name="lunchDays" id="LunchDays" style="border: 0; color: #EA9919; font-weight: bold;">
 
     <div id="LunchSlider" class="slider"></div>
     <br/>
     3. On average, how many days out of the week do you eat out for dinner?<br/>
     <%--Insert slider ranging 0-7--%>
     <label for="DinnerDays">Days: </label>
-    <input type="text" name="dinnerDays" value="${lifestyle_dinnerDays}" id="DinnerDays" style="border: 0; color: #EA9919; font-weight: bold;">
+    <input type="text" name="dinnerDays" id="DinnerDays" style="border: 0; color: #EA9919; font-weight: bold;">
 
     <div id="DinnerSlider" class="slider"></div>
     <br/>
     4. On average, how much do you spend on video games per month?<br/>
     <%--Insert slider ranging 0-some number--%>
     <label for="VideoGamesBudget">Money Spent: </label>
-    <input type="text" name="gameSpending" value="${lifestyle_gameSpending}" id="VideoGamesBudget" style="border: 0; color: #EA9919; font-weight: bold;">
+    <input type="text" name="gameSpending" id="VideoGamesBudget" style="border: 0; color: #EA9919; font-weight: bold;">
 
     <div id="VideoGameSlider" class="slider"></div>
     <br/>
@@ -56,9 +58,9 @@
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 <script>
-    function setUpSlider(slidesu, slidi,max, value) {
+    function setUpSlider(slidesu, slidi,max,val) {
         $(slidesu).slider({
-            min: 0, max: max, value: 0,
+            min: 0, max: max, value: val,
             slide: function (event, ui) {
                 $(slidi).val(ui.value);
             }
@@ -66,9 +68,9 @@
         $(slidi).val($(slidesu).slider("value"));
     }
     $(function(){
-                setUpSlider("#LunchSlider","#LunchDays",7);
-                setUpSlider("#DinnerSlider","#DinnerDays",7);
-                setUpSlider("#VideoGameSlider","#VideoGamesBudget",200);
+                setUpSlider("#LunchSlider","#LunchDays",7,${lifestyle_lunchDays eq null ? 0 : lifestyle_lunchDays});
+                setUpSlider("#DinnerSlider","#DinnerDays",7,${lifestyle_dinnerDays eq null ? 0 : lifestyle_dinnerDays});
+                setUpSlider("#VideoGameSlider","#VideoGamesBudget",200,${lifestyle_gameSpending eq null ? 0 : lifestyle_gameSpending});
             }
     );
 </script>

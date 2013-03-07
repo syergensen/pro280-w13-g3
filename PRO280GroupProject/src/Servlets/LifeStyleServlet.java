@@ -20,18 +20,29 @@ public class LifeStyleServlet extends HttpServlet {
         HttpSession session = request.getSession();
         // HousingSituation
         session.setAttribute("lifestyle_housing", request.getParameter("housing"));
-        // MonthlyRent
-        session.setAttribute("lifestyle_rent", request.getParameter("rent"));
-        // UtilitiesBill
-        session.setAttribute("lifestyle_bills", request.getParameter("bills"));
-        // DietLunchEatOutWeekly
-        session.setAttribute("lifestyle_lunchDays", request.getParameter("lunchDays"));
-        // DietDinnerEatOutWeekly
-        session.setAttribute("lifestyle_dinnerDays", request.getParameter("dinnerDays"));
-        // MonthlyVideoGameTime
-        session.setAttribute("lifestyle_gameSpending", request.getParameter("gameSpending"));
+        try{
+            // MonthlyRent
+            double rent = Double.parseDouble(request.getParameter("rent"));
+            session.setAttribute("lifestyle_rent", rent);
+            // UtilitiesBill
+            double bills = Double.parseDouble(request.getParameter("bills"));
+            session.setAttribute("lifestyle_bills", bills);
 
-        request.getRequestDispatcher(getServletContext().getInitParameter("aspirations")).forward(request, response);
+            // DietLunchEatOutWeekly
+            int lunchDays = Integer.parseInt(request.getParameter("lunchDays"));
+            session.setAttribute("lifestyle_lunchDays", lunchDays);
+            // DietDinnerEatOutWeekly
+            int dinnerDays = Integer.parseInt(request.getParameter("dinnerDays"));
+            session.setAttribute("lifestyle_dinnerDays", dinnerDays);
+            // MonthlyVideoGameTime
+            int gameSpending = Integer.parseInt(request.getParameter("gameSpending"));
+            session.setAttribute("lifestyle_gameSpending", gameSpending);
+
+            request.getRequestDispatcher(getServletContext().getInitParameter("aspirations")).forward(request, response);
+        }catch (NumberFormatException e){
+            request.setAttribute("error", "Please enter a number.");
+            request.getRequestDispatcher(getServletContext().getInitParameter("lifestyle")).forward(request, response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

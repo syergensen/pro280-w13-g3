@@ -22,22 +22,38 @@ public class SchoolServlet extends HttpServlet {
         session.setAttribute("school_quarter", request.getParameter("quarter"));
         session.setAttribute("school_year", request.getParameter("year"));
         session.setAttribute("school_program", request.getParameter("program"));
-        //FullTime,PartTime
-        session.setAttribute("school_fullTime", request.getParameter("fullTime"));
-        session.setAttribute("school_partTime", request.getParameter("partTime"));
-        //LoanTypePercentage
-        session.setAttribute("school_loanPercent", request.getParameter("loanPercent"));
-        //Grants/Scholarships,InterestRate
-        session.setAttribute("school_grants", request.getParameter("grants"));
-        session.setAttribute("school_interest", request.getParameter("interest"));
-        //CreditDebtAmount
-        session.setAttribute("school_creditDebt", request.getParameter("creditDebt"));
-        //MedicalDebtAmount
-        session.setAttribute("school_medicalDebt", request.getParameter("medicalDebt"));
-        //OutStandingDebtAmount
-        session.setAttribute("school_loanDebt", request.getParameter("loanDebt"));
 
-        request.getRequestDispatcher(getServletContext().getInitParameter("lifestyle")).forward(request, response);
+        try{
+            //FullTime,PartTime
+            int fullTime = Integer.parseInt(request.getParameter("fullTime"));
+            session.setAttribute("school_fullTime", fullTime);
+
+            int partTime = Integer.parseInt(request.getParameter("partTime"));
+            session.setAttribute("school_partTime", partTime);
+            //LoanTypePercentage
+            double loanPercent = Double.parseDouble(request.getParameter("loanPercent"));
+            session.setAttribute("school_loanPercent", loanPercent);
+            //Grants/Scholarships,InterestRate
+            double grants = Double.parseDouble(request.getParameter("grants"));
+            session.setAttribute("school_grants", grants);
+
+            double interest = Double.parseDouble(request.getParameter("interest"));
+            session.setAttribute("school_interest", interest);
+            //CreditDebtAmount
+            double creditDebt = Double.parseDouble(request.getParameter("creditDebt"));
+            session.setAttribute("school_creditDebt", creditDebt);
+            //MedicalDebtAmount
+            double medicalDebt = Double.parseDouble(request.getParameter("medicalDebt"));
+            session.setAttribute("school_medicalDebt", medicalDebt);
+            //OutStandingDebtAmount
+            double loanDebt = Double.parseDouble(request.getParameter("loanDebt"));
+            session.setAttribute("school_loanDebt", loanDebt);
+
+            request.getRequestDispatcher(getServletContext().getInitParameter("lifestyle")).forward(request, response);
+        }catch (NumberFormatException e){
+            request.setAttribute("error", "Please enter a number.");
+            request.getRequestDispatcher(getServletContext().getInitParameter("school")).forward(request, response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

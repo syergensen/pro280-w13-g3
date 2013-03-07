@@ -13,7 +13,7 @@
 </div>
 <br/>
 <form method="post" action="start.do">
-    <input type="checkbox" name="agree">I have read the Terms of Service</input><br/>
+    <input type="checkbox" name="agree" checked>I have read the Terms of Service</input><br/>
     <input type="submit" value="Begin">
 </form>
 </body>

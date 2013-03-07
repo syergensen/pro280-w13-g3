@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: cknox
@@ -15,7 +16,7 @@
 <body>
 <h2><i>Please answer the following questions about your school and funding:</i></h2>
 
-
+<c:if test="${requestScope.error ne null}">${requestScope.error}<br/></c:if>
 <form method="post" action="school.do">
     1. When did you start attending Neumont:<br/>
     <select name="quarter">
@@ -41,12 +42,6 @@
     <br/>
     <%--Change later to pull from database--%>
     4. Please select the ratio of funding provided loans versus out-of-pocket contributions:<br/>
-    <%--<input type="radio" name="loanPercent" value="0">100% Out-of-pocket<br/>--%>
-    <%--<input type="radio" name="loanPercent" value="25">25%/75% Out-of-pocket/Loans<br/>--%>
-    <%--<input type="radio" name="loanPercent" value="50">50%/50% Out-of-pocket/Loans<br/>--%>
-    <%--<input type="radio" name="loanPercent" value="75">75%/25% Out-of-pocket/Loans<br/>--%>
-    <%--<input type="radio" name="loanPercent" value="100">100% Loans<br/>--%>
-
     <label for="SliderAmount">Loan Percentage: </label>
     <input type="text" name="loanPercent" id="SliderAmount" style="border: 0; color: #EA9919; font-weight: bold;">
 
@@ -74,7 +69,7 @@
     <script>
         $(function () {
             $('#loanSlider').slider({
-                min: 0, max: 100, value: ${school_loanPercent},
+                min: 0, max: 100, value: ${school_loanPercent eq null ? 50 : school_loanPercent},
                 slide: function (event, ui) {
                     $("#SliderAmount").val(ui.value);
                 }
