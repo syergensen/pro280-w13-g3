@@ -49,7 +49,8 @@ public class SchoolServlet extends HttpServlet {
             double loanDebt = Double.parseDouble(request.getParameter("loanDebt"));
             session.setAttribute("school_loanDebt", loanDebt);
 
-            request.getRequestDispatcher(getServletContext().getInitParameter("lifestyle")).forward(request, response);
+            response.sendRedirect("./lifestyle.do");
+//            request.getRequestDispatcher(getServletContext().getInitParameter("lifestyle")).forward(request, response);
         }catch (NumberFormatException e){
             request.setAttribute("error", "Please enter a number.");
             request.getRequestDispatcher(getServletContext().getInitParameter("school")).forward(request, response);

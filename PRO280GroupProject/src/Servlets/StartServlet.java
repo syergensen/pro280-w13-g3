@@ -24,12 +24,12 @@ public class StartServlet extends HttpServlet {
         //Else redirect back to index.jsp
         else
         {
-            request.getRequestDispatcher(getServletContext().getInitParameter("school")).forward(request, response);
+            response.sendRedirect("./school.do");
+//            request.getRequestDispatcher(getServletContext().getInitParameter("school")).forward(request, response);
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Pull data from model about terms and service.
-        request.getRequestDispatcher("start.jsp").forward(request, response);
     }
 }

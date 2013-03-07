@@ -20,6 +20,9 @@
 <form method="post" action="school.do">
     1. When did you start attending Neumont:<br/>
     <select name="quarter">
+        <c:forEach items="${selectItems}" var="item">
+            <option value="${item.itemName}" ${school_quarter eq item.itemName ? 'checked' : ''}>${item.itemName}</option>
+        </c:forEach>
         <option value="fall">Fall Quarter</option>
         <option value="">Pull quarter items from database</option>
     </select>

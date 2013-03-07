@@ -14,7 +14,6 @@ import java.util.List;
  * User: jflores
  * Date: 3/6/13
  * Time: 6:04 PM
- * To change this template use File | Settings | File Templates.
  */
 @LocalBean
 @Stateless
@@ -22,8 +21,8 @@ public class NuDegreeManager {
     @PersistenceContext
     EntityManager em;
 
-    public List<NuDegrees> getRegions() {
-        TypedQuery<NuDegrees> allRegQuery = em.createQuery("Select d from NuDegrees d", NuDegrees.class);
-        return allRegQuery.getResultList();
+    public List<NuDegrees> getNuDegrees() {
+        TypedQuery<NuDegrees> allDegQuery = em.createQuery("Select d from NuDegrees d", NuDegrees.class);
+        return allDegQuery.getResultList();
     }
 }//end of class

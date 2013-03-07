@@ -14,7 +14,7 @@ import java.io.IOException;
  * Date: 2/27/13
  * Time: 6:33 PM -- Created
  */
-@WebServlet("/lifeStyle.do")
+@WebServlet("/lifestyle.do")
 public class LifeStyleServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
