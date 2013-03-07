@@ -4,5 +4,6 @@
         <jta-data-source>jdbc/Alice</jta-data-source>
         <class>Model.DatabaseEntities.SelectItem</class>
         <class>Model.DatabaseEntities.SelectGroup</class>
+        <class>Model.DatabaseEntities.Salary</class>
     </persistence-unit>
 </persistence>

@@ -1,0 +1,11 @@
+Terms and Conditions – NUBA
+ 
+This tool provides estimations of salaries, taxes, and other expenses.  It is not intended to be used as a guarantee of salary or income amounts.  The amounts used within this tool are based on U.S. Bureau of Labor Statistics information gathered from the Occupational Employment Statistics database.  This information may be outdated or contain numbers that are higher (or lower) than the average starting salary.
+ 
+This tool is intended solely for the use of current Neumont University students and their advisors.  Access by individuals outside of the Neumont University community is prohibited. 
+ 
+The functionality of this tool is provided “as-is”.
+ 
+Data entered into this tool is temporarily stored on Neumont University servers.  The user session and relevant information will kept on the server for time up to one hour after leaving the site, unless the user logs out.  No personally identifiable information is collected or stored within the tool.
+ 
+Questions regarding the information contained in this tool may be directed to the Neumont University Career Services department.  
