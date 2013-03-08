@@ -19,17 +19,20 @@
 <br/>
 
 <c:if test="${requestScope.error ne null}">${requestScope.error}<br/></c:if>
-<form method="post" action="lifeStyle.do">
+<form method="post" action="lifestyle.do">
     <%--Change later to pull from database--%>
     1. What is your housing situation?<br/>
+    <c:forEach items="${housingOptions}" var="option">
+        <input type="radio" name="housing" value="${option.itemName}" ${lifestyle_housing eq option.itemName ? 'checked' : ''}>${option.itemName}<br/>
+    </c:forEach>
     <input type="radio" name="housing" value="neumont" ${lifestyle_housing eq 'neumont' ? 'checked' : ''}>Neumont University housing<br/>
     <input type="radio" name="housing" value="free" ${lifestyle_housing eq 'free' ? 'checked' : ''}>Live with family or friends for free<br/>
     <input type="radio" name="housing" value="rent" ${lifestyle_housing eq 'rent' ? 'checked' : ''}>Renting an apartment or similar<br/>
     If you rent:<br/>
     a. How much do you spend monthly for rent?
-    $<input type="number" name="rent" value="${lifestyle_rent}" min="0" step="any"><br/>
+    $<input type="number" name="rent" value="${lifestyle_rent eq null ? 0 : lifestyle_rent}" min="0" step="any"><br/>
     b. On average, how much per month is spent on utilities/bills?
-    $<input type="number" name="bills" value="${lifestyle_bills}" min="0" step="any">
+    $<input type="number" name="bills" value="${lifestyle_bills eq null ? 0 : lifestyle_bills}" min="0" step="any">
     <br/>
     2. On average, how many days out of the week do you eat out for lunch?<br/>
     <%--Insert slider ranging 0-7--%>

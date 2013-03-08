@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 @Embeddable
 public class SalaryPk implements Serializable {
-    @Column(name = "Degree", nullable = false)
+    @Column(name = "degree", nullable = false)
     String Degree;
     @Column(name = "Region", nullable = false)
     String Region;

@@ -10,21 +10,26 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "SelectItem")
+@Table(name = "selectItem")
 public class SelectItem {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false, length = 11)
     Integer id;
 
     @Column(name = "itemName", length = 20, nullable = false)
     String itemName;
 
-    @Column(name = "groupId")
-    Integer groupId;
+//    @Column(name = "groupId")
+//    Integer groupId;
+//
+//    @JoinTable(name = "selectGroup", joinColumns = @JoinColumn(name = "groupId", referencedColumnName = "groupId"))
+//    @ManyToOne(optional = false, fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+//    SelectGroup group;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "groupId")
+    private SelectGroup selectGroup;
 
-    @JoinTable(name = "SelectGroup", joinColumns = @JoinColumn(name = "groupId", referencedColumnName = "groupId"))
-    @ManyToOne(optional = false, fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    SelectGroup group;
 
 
     public Integer getId() {
@@ -43,19 +48,26 @@ public class SelectItem {
         this.itemName = itemName;
     }
 
-    public Integer getGroupId() {
-        return groupId;
+    public SelectGroup getSelectGroup() {
+        return selectGroup;
     }
 
-    public void setGroupId(Integer groupId) {
-        this.groupId = groupId;
+    public void setSelectGroup(SelectGroup selectGroup) {
+        this.selectGroup = selectGroup;
     }
-
-    public SelectGroup getGroup() {
-        return group;
-    }
-
-    public void setGroup(SelectGroup group) {
-        this.group = group;
-    }
+//    public Integer getGroupId() {
+//        return groupId;
+//    }
+//
+//    public void setGroupId(Integer groupId) {
+//        this.groupId = groupId;
+//    }
+//
+//    public SelectGroup getGroup() {
+//        return group;
+//    }
+//
+//    public void setGroup(SelectGroup group) {
+//        this.group = group;
+//    }
 }//end of class

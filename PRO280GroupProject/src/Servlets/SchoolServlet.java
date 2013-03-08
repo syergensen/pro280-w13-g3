@@ -1,5 +1,10 @@
 package Servlets;
 
+import Model.Managers.NuDegreeManager;
+import Model.Managers.SelectGroupManager;
+import Model.Managers.SelectItemManager;
+
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +21,15 @@ import java.io.IOException;
  */
 @WebServlet("/school.do")
 public class SchoolServlet extends HttpServlet {
+    @EJB
+    SelectItemManager selectItemManager;
+
+    @EJB
+    SelectGroupManager selectGroupManager;
+
+    @EJB
+    NuDegreeManager nuDegreeManager;
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         //StartingQuarter,StartingYear,SelectedProgram
@@ -53,6 +67,7 @@ public class SchoolServlet extends HttpServlet {
 //            request.getRequestDispatcher(getServletContext().getInitParameter("lifestyle")).forward(request, response);
         }catch (NumberFormatException e){
             request.setAttribute("error", "Please enter a number.");
+            request.setAttribute("selectItems", selectItemManager.getSelectItems());
             request.getRequestDispatcher(getServletContext().getInitParameter("school")).forward(request, response);
         }
     }
@@ -60,6 +75,8 @@ public class SchoolServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Request Attributes for??:
         // Quarters, Programs, "Loan-Types" Strings from static variable in model
+        request.setAttribute("quarters", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("Quarter").getGroupId()));
+        request.setAttribute("programs", nuDegreeManager.getNuDegrees());
         request.getRequestDispatcher(getServletContext().getInitParameter("school")).forward(request, response);
 
     }

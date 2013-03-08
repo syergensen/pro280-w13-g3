@@ -1,5 +1,10 @@
 package Servlets;
 
+import Model.DatabaseEntities.SelectItem;
+import Model.Managers.SelectGroupManager;
+import Model.Managers.SelectItemManager;
+
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * A servlet meant to set up and receive the post of the LifeStyle.jsp page
@@ -16,6 +22,12 @@ import java.io.IOException;
  */
 @WebServlet("/lifestyle.do")
 public class LifeStyleServlet extends HttpServlet {
+    @EJB
+    SelectItemManager selectItemManager;
+
+    @EJB
+    SelectGroupManager selectGroupManager;
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         // HousingSituation
@@ -38,7 +50,8 @@ public class LifeStyleServlet extends HttpServlet {
             int gameSpending = Integer.parseInt(request.getParameter("gameSpending"));
             session.setAttribute("lifestyle_gameSpending", gameSpending);
 
-            request.getRequestDispatcher(getServletContext().getInitParameter("aspirations")).forward(request, response);
+            response.sendRedirect("./aspirations.do");
+//            request.getRequestDispatcher(getServletContext().getInitParameter("aspirations")).forward(request, response);
         }catch (NumberFormatException e){
             request.setAttribute("error", "Please enter a number.");
             request.getRequestDispatcher(getServletContext().getInitParameter("lifestyle")).forward(request, response);
@@ -48,6 +61,7 @@ public class LifeStyleServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Possible to have to request attribute:
         // HousingSituationTypes
+        request.setAttribute("housingOptions", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("InSchoolHousing").getGroupId()));
         request.getRequestDispatcher(getServletContext().getInitParameter("lifestyle")).forward(request, response);
     }
 }

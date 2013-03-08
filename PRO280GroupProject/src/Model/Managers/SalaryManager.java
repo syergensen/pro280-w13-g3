@@ -14,7 +14,6 @@ import java.util.List;
  * User: jflores
  * Date: 3/7/13
  * Time: 12:56 AM
- * To change this template use File | Settings | File Templates.
  */
 @LocalBean
 @Stateless

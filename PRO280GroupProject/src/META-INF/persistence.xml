@@ -5,5 +5,7 @@
         <class>Model.DatabaseEntities.SelectItem</class>
         <class>Model.DatabaseEntities.SelectGroup</class>
         <class>Model.DatabaseEntities.Salary</class>
+        <class>Model.DatabaseEntities.NuDegrees</class>
+        <class>Model.DatabaseEntities.Region</class>
     </persistence-unit>
 </persistence>

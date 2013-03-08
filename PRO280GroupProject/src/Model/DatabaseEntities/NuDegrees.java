@@ -1,5 +1,6 @@
 package Model.DatabaseEntities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -14,13 +15,14 @@ import javax.persistence.Table;
 @Table(name = "NuDegrees")
 public class NuDegrees {
     @Id
-    String Degree;
+    @Column(name = "degree")
+    String degree;
 
     public String getDegree() {
-        return Degree;
+        return degree;
     }
 
     public void setDegree(String degree) {
-        Degree = degree;
+        this.degree = degree;
     }
 }//end of class
