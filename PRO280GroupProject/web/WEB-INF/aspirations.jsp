@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: cknox
@@ -13,28 +14,32 @@
     1. After graduating Neumont what is your preferred region to live in the United States:
     <select name="region">
         <%--${aspirations_region eq loopVar(rename) ? 'checked' : ''}--%>
-        <option value="newEngland" >New England</option>
-        <option value="">Pull regions from database</option>
+        <c:forEach items="${regions}" var="region">
+            <option value="${region.regionName}" ${sessionScope.aspirations_region eq region ? 'selected' : ''}>${region.regionName}</option>
+        </c:forEach>
     </select>
     <br/>
     2.  Please describe your preferred car:<br/>
-    <input type="radio" name="carCondition" value="new">New car
-    <input type="radio" name="carFuelEconomy" value="above">Above average fuel economy
-    <input type="radio" name="carQuality" value="high">High end car
-    <br/>
-    <input type="radio" name="carCondition" value="used">Used car
-    <input type="radio" name="carFuelEconomy" value="average">Average fuel economy
-    <input type="radio" name="carQuality" value="average">Average car
-    <br/>
-    <input type="radio" name="carCondition" value="none">No car
-    <input type="radio" name="carFuelEconomy" value="below">Below average fuel economy
-    <input type="radio" name="carQuality" value="low">Low end car
+    <select name="carCondition">
+        <c:forEach items="${conditions}" var="condition">
+            <option value="${condition.itemName}" ${sessionScope.aspirations_carCondition eq condition.itemName ? 'selected' : ''}>${condition.itemName}</option>
+        </c:forEach>
+    </select>
+    <select name="carFuelEconomy">
+        <c:forEach items="${economies}" var="economy">
+            <option value="${economy.itemName}" ${sessionScope.aspirations_carFuelEconomy eq economy.itemName ? 'selected' : ''}>${economy.itemName}</option>
+        </c:forEach>
+    </select>
+    <select name="carQuality">
+        <c:forEach items="${qualities}" var="quality">
+            <option value="${quality.itemName}" ${sessionScope.aspirations_carQuality eq quality.itemName ? 'selected' : ''}>${quality.itemName}</option>
+        </c:forEach>
+    </select>
     <br/>
     3.  Please describe your preferred house:<br/>
-    <input type="radio" name="house" value="own">Own<br/>
-    <input type="radio" name="house" value="rent">Rent<br/>
-    <input type="radio" name="house" value="free">Live with parents
-    <br/>
+    <c:forEach items="${housePreferences}" var="preference">
+        <input type="radio" name="house" value="${preference.itemName}" ${sessionScope.aspirations_house eq preference.itemName ? 'checked' : ''}>${preference.itemName}<br/>
+    </c:forEach>
     <input type="submit" value="Finish">
 </form>
 </body>

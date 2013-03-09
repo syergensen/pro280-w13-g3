@@ -21,6 +21,14 @@ public class SalaryManager {
     @PersistenceContext
     EntityManager em;
 
+    public Salary getSalaryByDegreeAndRegion(String degree, String region)
+    {
+        TypedQuery<Salary> salaryQuery = em.createQuery("select s from Salaries s where s.salaryPk.degree = :degree and s.salaryPk.region = :region", Salary.class);
+        salaryQuery.setParameter("degree", degree);
+        salaryQuery.setParameter("region", region);
+        return salaryQuery.getSingleResult();
+    }
+
     public List<Salary> getSalaries() {
         TypedQuery<Salary> allSalaryQuery = em.createQuery("Select sal from Salaries sal", Salary.class);
         return allSalaryQuery.getResultList();

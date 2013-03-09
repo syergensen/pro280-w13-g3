@@ -1,5 +1,6 @@
 package Model.DatabaseEntities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -14,6 +15,7 @@ import javax.persistence.Table;
 @Table(name = "Regions")
 public class Region {
     @Id
+    @Column(name = "regionName")
     String regionName;
 
     public String getRegionName() {

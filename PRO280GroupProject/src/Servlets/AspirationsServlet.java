@@ -1,5 +1,12 @@
 package Servlets;
 
+import Model.DatabaseEntities.SelectGroup;
+import Model.DatabaseEntities.SelectItem;
+import Model.Managers.RegionManager;
+import Model.Managers.SelectGroupManager;
+import Model.Managers.SelectItemManager;
+
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +24,15 @@ import java.io.IOException;
  */
 @WebServlet("/aspirations.do")
 public class AspirationsServlet extends HttpServlet {
+    @EJB
+    RegionManager regionManager;
+
+    @EJB
+    SelectItemManager selectItemManager;
+
+    @EJB
+    SelectGroupManager selectGroupManager;
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         //PreferredRegion
@@ -34,6 +50,11 @@ public class AspirationsServlet extends HttpServlet {
         // May have to request attribute:
         // PrefferedRegions, CarUsed, CarFuelEconomies, CarRating,
         // and LivingConditionOptions.
+        request.setAttribute("regions", regionManager.getRegions());
+        request.setAttribute("conditions", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("CarAge").getGroupId()));
+        request.setAttribute("economies", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("CarFuel").getGroupId()));
+        request.setAttribute("qualities", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("CarRating").getGroupId()));
+        request.setAttribute("housePreferences", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("AfterHousing").getGroupId()));
         request.getRequestDispatcher(getServletContext().getInitParameter("aspirations")).forward(request, response);
 
     }

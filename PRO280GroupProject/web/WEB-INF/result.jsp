@@ -14,7 +14,7 @@
 <table>
     <tr>
         <td>Salary</td>
-        <td>Salary result acquired</td>
+        <td>$${test.salary}/month</td>
     </tr>
     <tr>
         <td>Income Tax</td>

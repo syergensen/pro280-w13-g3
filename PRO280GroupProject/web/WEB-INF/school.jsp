@@ -25,8 +25,9 @@
         </c:forEach>
     </select>
     <select name="year">
-        <option value="2013">2013</option>
-        <option value="">Iterate through necessary years</option>
+        <c:forEach var="year" begin="${currentYear - 10}" end="${currentYear}">
+            <option value="${year}" ${sessionScope.school_year eq year ? 'selected' : ''}>${year}</option>
+        </c:forEach>
     </select>
     <br/>
     2. Which program are you enrolled in:<br/>

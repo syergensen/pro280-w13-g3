@@ -25,9 +25,6 @@
     <c:forEach items="${housingOptions}" var="option">
         <input type="radio" name="housing" value="${option.itemName}" ${lifestyle_housing eq option.itemName ? 'checked' : ''}>${option.itemName}<br/>
     </c:forEach>
-    <input type="radio" name="housing" value="neumont" ${lifestyle_housing eq 'neumont' ? 'checked' : ''}>Neumont University housing<br/>
-    <input type="radio" name="housing" value="free" ${lifestyle_housing eq 'free' ? 'checked' : ''}>Live with family or friends for free<br/>
-    <input type="radio" name="housing" value="rent" ${lifestyle_housing eq 'rent' ? 'checked' : ''}>Renting an apartment or similar<br/>
     If you rent:<br/>
     a. How much do you spend monthly for rent?
     $<input type="number" name="rent" value="${lifestyle_rent eq null ? 0 : lifestyle_rent}" min="0" step="any"><br/>

@@ -14,7 +14,24 @@ import java.io.Serializable;
 @Embeddable
 public class SalaryPk implements Serializable {
     @Column(name = "degree", nullable = false)
-    String Degree;
-    @Column(name = "Region", nullable = false)
-    String Region;
+    String degree;
+
+    @Column(name = "region", nullable = false)
+    String region;
+
+    public String getDegree() {
+        return this.degree;
+    }
+
+    public void setDegree(String degree) {
+        this.degree = degree;
+    }
+
+    public String getRegion() {
+        return this.region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
 }

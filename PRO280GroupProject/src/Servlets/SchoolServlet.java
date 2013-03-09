@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * A servlet meant to set up and receive the post of the School.jsp page
@@ -75,8 +77,9 @@ public class SchoolServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Request Attributes for??:
         // Quarters, Programs, "Loan-Types" Strings from static variable in model
-        request.setAttribute("quarters", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("Quarter").getGroupId()));
+        request.setAttribute("quarters", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("Quarters").getGroupId()));
         request.setAttribute("programs", nuDegreeManager.getNuDegrees());
+        request.setAttribute("currentYear", Calendar.getInstance().get(Calendar.YEAR));
         request.getRequestDispatcher(getServletContext().getInitParameter("school")).forward(request, response);
 
     }
