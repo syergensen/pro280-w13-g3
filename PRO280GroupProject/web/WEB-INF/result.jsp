@@ -14,7 +14,7 @@
 <table>
     <tr>
         <td>Salary</td>
-        <td>$${test.salary}/month</td>
+        <td>$${salary}/month</td>
     </tr>
     <tr>
         <td>Income Tax</td>
@@ -53,7 +53,7 @@
     </tr>
     <tr>
         <td>Discretionary Income</td>
-        <td>Discretionary income result acquired</td>
+        <td>${salary<%--subtract other results--%>}</td>
     </tr>
 </table>
 <input type="submit" value="Print">

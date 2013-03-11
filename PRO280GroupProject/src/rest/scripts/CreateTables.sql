@@ -1,3 +1,38 @@
+ALTER TABLE users_groups DROP FOREIGN KEY fk_users_groups_user_id;
+ALTER TABLE users_groups DROP FOREIGN KEY fk_users_groups_group_id;
+DROP VIEW IF EXISTS vlogin;
+DROP TABLE IF EXISTS users_groups;
+DROP TABLE IF EXISTS groups;
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+	user_id   INTEGER AUTO_INCREMENT PRIMARY KEY,
+	name      VARCHAR(64) NOT NULL,
+	password  VARCHAR(64) NOT NULL
+);
+
+CREATE TABLE groups (
+	group_id  INTEGER AUTO_INCREMENT PRIMARY KEY,
+	name      VARCHAR(64) NOT NULL
+);
+
+CREATE TABLE users_groups (
+	user_id   INTEGER NOT NULL,
+	group_id  INTEGER NOT NULL,
+	PRIMARY KEY (user_id, group_id)
+);
+
+ALTER TABLE users_groups ADD CONSTRAINT fk_users_groups_user_id
+	FOREIGN KEY (user_id) REFERENCES users (user_id);
+
+ALTER TABLE users_groups ADD CONSTRAINT fk_users_groups_group_id
+	FOREIGN KEY (group_id) REFERENCES groups (group_id);
+
+CREATE VIEW vlogin AS
+    SELECT u.name AS username, u.password AS password, g.name AS groupname
+    FROM users u JOIN users_groups ug ON u.user_id = ug.user_id
+    JOIN groups g ON ug.group_id = g.group_id;
+
 CREATE TABLE NuDegrees(
 	Degree VARCHAR(10) not null primary key
 );

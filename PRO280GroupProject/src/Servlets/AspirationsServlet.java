@@ -22,7 +22,7 @@ import java.io.IOException;
  * Time: 6:37 PM
  * To change this template use File | Settings | File Templates.
  */
-@WebServlet("/aspirations.do")
+@WebServlet("/postGraduation.do")
 public class AspirationsServlet extends HttpServlet {
     @EJB
     RegionManager regionManager;

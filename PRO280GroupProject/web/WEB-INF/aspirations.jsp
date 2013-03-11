@@ -10,7 +10,7 @@
 </head>
 <body>
 <h2><i>In order to provide more accurate results we would like to know more about your aspirations, things that you desire to have after graduation:</i></h2>
-<form method="post" action="aspirations.do">
+<form method="post" action="postGraduation.do">
     1. After graduating Neumont what is your preferred region to live in the United States:
     <select name="region">
         <%--${aspirations_region eq loopVar(rename) ? 'checked' : ''}--%>
