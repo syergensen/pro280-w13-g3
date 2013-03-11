@@ -63,6 +63,13 @@ CREATE TABLE Salaries(
 	primary key(Degree,Region)
 );
 
+-- Check out other insert sql page in order to see temp insert
+CREATE TABLE app_properties_table(
+	file_name varchar(10) not null,
+	file_value text not null,
+	primary key(file_name)
+);
+
 ---- Inserts
 -- Nu Degrees
 Insert into NuDegrees values('BSCS');
@@ -157,4 +164,4 @@ Select * from NuDegrees;
 Select * from Regions;
 Select * from selectGroup;
 Select * from selectItem;
-Select * from Salaries;
+Select * from Salaries;Select * from app_properties_table;

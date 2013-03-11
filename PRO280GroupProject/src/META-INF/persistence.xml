@@ -7,5 +7,6 @@
         <class>Model.DatabaseEntities.Salary</class>
         <class>Model.DatabaseEntities.NuDegrees</class>
         <class>Model.DatabaseEntities.Region</class>
+        <class>Model.DatabaseEntities.AppProperty</class>
     </persistence-unit>
 </persistence>
