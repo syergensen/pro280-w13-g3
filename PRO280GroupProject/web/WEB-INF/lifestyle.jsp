@@ -8,6 +8,7 @@
 <head>
     <title>Lifestyle</title>
     <link rel="stylesheet" href="css/sunny/jquery-ui-1.9.2.custom.css"/>
+    <link rel="stylesheet" href="css/Global/global.css"/>
     <style>
         .slider {
             width: 300px;
@@ -15,6 +16,7 @@
     </style>
 </head>
 <body>
+<c:import url="tags/HeaderBand.tag"/>
 <h2><i>These questions will focus on the housing and lifestyle choices while still in school:</i></h2>
 <br/>
 
@@ -23,7 +25,9 @@
     <%--Change later to pull from database--%>
     1. What is your housing situation?<br/>
     <c:forEach items="${housingOptions}" var="option">
-        <input type="radio" name="housing" value="${option.itemName}" ${lifestyle_housing eq option.itemName ? 'checked' : ''}>${option.itemName}<br/>
+        <input type="radio" name="housing"
+               value="${option.itemName}" ${lifestyle_housing eq option.itemName ? 'checked' : ''}>${option.itemName}
+        <br/>
     </c:forEach>
     If you rent:<br/>
     a. How much do you spend monthly for rent?
@@ -58,7 +62,7 @@
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 <script>
-    function setUpSlider(slidesu, slidi,max,val) {
+    function setUpSlider(slidesu, slidi, max, val) {
         $(slidesu).slider({
             min: 0, max: max, value: val,
             slide: function (event, ui) {
@@ -67,10 +71,10 @@
         });
         $(slidi).val($(slidesu).slider("value"));
     }
-    $(function(){
-                setUpSlider("#LunchSlider","#LunchDays",7,${lifestyle_lunchDays eq null ? 0 : lifestyle_lunchDays});
-                setUpSlider("#DinnerSlider","#DinnerDays",7,${lifestyle_dinnerDays eq null ? 0 : lifestyle_dinnerDays});
-                setUpSlider("#VideoGameSlider","#VideoGamesBudget",200,${lifestyle_gameSpending eq null ? 0 : lifestyle_gameSpending});
+    $(function () {
+                setUpSlider("#LunchSlider", "#LunchDays", 7, ${lifestyle_lunchDays eq null ? 0 : lifestyle_lunchDays});
+                setUpSlider("#DinnerSlider", "#DinnerDays", 7, ${lifestyle_dinnerDays eq null ? 0 : lifestyle_dinnerDays});
+                setUpSlider("#VideoGameSlider", "#VideoGamesBudget", 200, ${lifestyle_gameSpending eq null ? 0 : lifestyle_gameSpending});
             }
     );
 </script>

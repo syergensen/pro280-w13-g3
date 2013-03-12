@@ -6,10 +6,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" href="css/Global/global.css"/>
     <title>Aspirations</title>
 </head>
 <body>
-<h2><i>In order to provide more accurate results we would like to know more about your aspirations, things that you desire to have after graduation:</i></h2>
+<c:import url="tags/HeaderBand.tag"/>
+<h2><i>In order to provide more accurate results we would like to know more about your aspirations, things that you
+    desire to have after graduation:</i></h2>
+
 <form method="post" action="postGraduation.do">
     1. After graduating Neumont what is your preferred region to live in the United States:
     <select name="region">
@@ -19,7 +23,7 @@
         </c:forEach>
     </select>
     <br/>
-    2.  Please describe your preferred car:<br/>
+    2. Please describe your preferred car:<br/>
     <select name="carCondition">
         <c:forEach items="${conditions}" var="condition">
             <option value="${condition.itemName}" ${sessionScope.aspirations_carCondition eq condition.itemName ? 'selected' : ''}>${condition.itemName}</option>
@@ -36,9 +40,11 @@
         </c:forEach>
     </select>
     <br/>
-    3.  Please describe your preferred house:<br/>
+    3. Please describe your preferred house:<br/>
     <c:forEach items="${housePreferences}" var="preference">
-        <input type="radio" name="house" value="${preference.itemName}" ${sessionScope.aspirations_house eq preference.itemName ? 'checked' : ''}>${preference.itemName}<br/>
+        <input type="radio" name="house"
+               value="${preference.itemName}" ${sessionScope.aspirations_house eq preference.itemName ? 'checked' : ''}>${preference.itemName}
+        <br/>
     </c:forEach>
     <input type="submit" value="Finish">
 </form>

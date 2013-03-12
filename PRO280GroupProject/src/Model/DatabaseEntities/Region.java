@@ -17,6 +17,10 @@ public class Region {
     @Id
     @Column(name = "regionName")
     String regionName;
+    @Column(name = "rent")
+    int rent;
+    @Column(name = "mortgage")
+    int mortgage;
 
     public String getRegionName() {
         return regionName;
@@ -24,5 +28,21 @@ public class Region {
 
     public void setRegionName(String regionName) {
         this.regionName = regionName;
+    }
+
+    public int getRent() {
+        return rent;
+    }
+
+    public void setRent(int rent) {
+        this.rent = rent;
+    }
+
+    public int getMortgage() {
+        return mortgage;
+    }
+
+    public void setMortgage(int mortgage) {
+        this.mortgage = mortgage;
     }
 }//end of class

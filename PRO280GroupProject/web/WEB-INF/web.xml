@@ -25,4 +25,8 @@
         <param-name>result</param-name>
         <param-value>/WEB-INF/result.jsp</param-value>
     </context-param>
+
+    <welcome-file-list>
+        <welcome-file>start.do</welcome-file>
+    </welcome-file-list>
 </web-app>

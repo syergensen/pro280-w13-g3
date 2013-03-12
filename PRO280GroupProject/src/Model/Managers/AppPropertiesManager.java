@@ -1,6 +1,6 @@
 package Model.Managers;
 
-import Model.DatabaseEntities.AppProperty;
+import Model.DatabaseEntities.appProperty;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -16,18 +16,18 @@ public class AppPropertiesManager {
     @PersistenceContext
     EntityManager em;
 
-    public List<AppProperty> getAppProperties() {
-        TypedQuery<AppProperty> appPropertyTypedQuery = em.createQuery("Select app FROM AppProperty app", AppProperty.class);
+    public List<appProperty> getAppProperties() {
+        TypedQuery<appProperty> appPropertyTypedQuery = em.createQuery("Select app FROM appProperty app", appProperty.class);
         return appPropertyTypedQuery.getResultList();
     }
 
-    public AppProperty getAppPropertyByName(String appName) {
-        TypedQuery<AppProperty> appPropertyTypedQuery = em.createQuery("select app from AppProperty app where :aName = app.fileName", AppProperty.class);
+    public appProperty getAppPropertyByName(String appName) {
+        TypedQuery<appProperty> appPropertyTypedQuery = em.createQuery("select app from appProperty app where :aName = app.fileName", appProperty.class);
         appPropertyTypedQuery.setParameter("aName", appName);
         return appPropertyTypedQuery.getSingleResult();
     }
 
-    public void persistAppProperty(AppProperty appProperty) {
+    public void persistAppProperty(appProperty appProperty) {
         em.persist(appProperty);
     }
 

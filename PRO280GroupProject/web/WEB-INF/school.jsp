@@ -8,12 +8,14 @@
 <head>
     <title>School</title>
     <link rel="stylesheet" href="css/sunny/jquery-ui-1.9.2.custom.css"/>
+    <link rel="stylesheet" href="css/Global/global.css"/>
     <style>
         #loanSlider {
             width: 300px;
         }
     </style>
 <body>
+<c:import url="tags/HeaderBand.tag"/>
 <h2><i>Please answer the following questions about your school and funding:</i></h2>
 
 <c:if test="${requestScope.error ne null}">${requestScope.error}<br/></c:if>
@@ -53,13 +55,16 @@
     Total amount of grants/scholarships:
     $<input type="number" name="grants" value="${school_grants eq null ? 0 : school_grants}" min="0.0" step="any"><br/>
     Interest Rate:
-    <input type="number" name="interest" value="${school_interest eq null ? 0 : school_interest}" min="0.0" max="100.0" step="any">%
+    <input type="number" name="interest" value="${school_interest eq null ? 0 : school_interest}" min="0.0" max="100.0"
+           step="any">%
     <br/>
     5. How much (if any) outstanding credit card debt do you have?
-    $<input type="number" name="creditDebt" value="${school_creditDebt eq null ? 0 : school_creditDebt}" min="0.0" step="any">
+    $<input type="number" name="creditDebt" value="${school_creditDebt eq null ? 0 : school_creditDebt}" min="0.0"
+            step="any">
     <br/>
     6. How much (if any) outstanding medical debt do you have?
-    $<input type="number" name="medicalDebt" value="${school_medicalDebt eq null ? 0 : school_medicalDebt}" min="0.0" step="any">
+    $<input type="number" name="medicalDebt" value="${school_medicalDebt eq null ? 0 : school_medicalDebt}" min="0.0"
+            step="any">
     <br/>
     7. How much (if any) outstanding loan debt (school, car) do you have?
     $<input type="number" name="loanDebt" value="${school_loanDebt eq null ? 0 : school_loanDebt}" min="0.0" step="any">

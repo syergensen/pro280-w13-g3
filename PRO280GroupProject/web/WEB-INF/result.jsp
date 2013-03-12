@@ -3,11 +3,15 @@
   User: cknox
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <link rel="stylesheet" href="css/Global/global.css"/>
     <title>Results</title>
 </head>
 <body>
+<c:import url="tags/HeaderBand.tag"/>
+
 <form method="post" action="result.do">
     <input type="submit" value="+1 Quarter">
 </form>
@@ -27,12 +31,16 @@
     <tr>
         <td>Car Expenses</td>
         <td>Car result acquired</td>
-        <td><form method="get" action="aspirations.do"><input type="submit" value="Revise"></form></td>
+        <td>
+            <form method="get" action="aspirations.do"><input type="submit" value="Revise"></form>
+        </td>
     </tr>
     <tr>
         <td>Mortgage/Rent</td>
         <td>Mortgage/rent result acquired</td>
-        <td><form method="get" action="aspirations.do"><input type="submit" value="Revise"></form></td>
+        <td>
+            <form method="get" action="aspirations.do"><input type="submit" value="Revise"></form>
+        </td>
     </tr>
     <tr>
         <td>Utilities</td>
@@ -41,7 +49,9 @@
     <tr>
         <td>Total Loans</td>
         <td>Loan result acquired</td>
-        <td><form method="get" action="school.do"><input type="submit" value="Revise"></form></td>
+        <td>
+            <form method="get" action="school.do"><input type="submit" value="Revise"></form>
+        </td>
     </tr>
     <tr>
         <td>In-School Savings</td>

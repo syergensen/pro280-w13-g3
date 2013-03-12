@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "app_properties_table")
-public class AppProperty {
+public class appProperty {
     @Id
     @Column(name = "file_name")
     String fileName;
@@ -12,7 +12,7 @@ public class AppProperty {
     @Column(name = "file_value")
     String fileContents;
 
-    public AppProperty(){}
+    public appProperty(){}
 
     public String getFileContents() {
         return fileContents;
