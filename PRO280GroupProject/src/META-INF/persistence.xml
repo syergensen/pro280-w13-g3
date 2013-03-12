@@ -7,5 +7,9 @@
         <class>Model.DatabaseEntities.Salary</class>
         <class>Model.DatabaseEntities.NuDegrees</class>
         <class>Model.DatabaseEntities.Region</class>
+        <class>Model.DatabaseEntities.User</class>
+        <class>Model.DatabaseEntities.Group</class>
+        <class>Model.DatabaseEntities.Car</class>
+        <class>Model.DatabaseEntities.Mileage</class>
     </persistence-unit>
 </persistence>

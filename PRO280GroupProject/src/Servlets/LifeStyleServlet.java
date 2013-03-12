@@ -50,7 +50,7 @@ public class LifeStyleServlet extends HttpServlet {
             int gameSpending = Integer.parseInt(request.getParameter("gameSpending"));
             session.setAttribute("lifestyle_gameSpending", gameSpending);
 
-            response.sendRedirect("./aspirations.do");
+            response.sendRedirect("./postGraduation.do");
 //            request.getRequestDispatcher(getServletContext().getInitParameter("aspirations")).forward(request, response);
         }catch (NumberFormatException e){
             request.setAttribute("error", "Please enter a number.");

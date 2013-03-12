@@ -17,15 +17,9 @@ import java.io.IOException;
 public class StartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //If agreed to terms and service
-        if(request.getParameter("agree")==null)
-        {
-            response.sendRedirect("./");
-        }
-        //Else redirect back to index.jsp
-        else
+        if(request.getParameter("agree")!=null)
         {
             response.sendRedirect("./school.do");
-//            request.getRequestDispatcher(getServletContext().getInitParameter("school")).forward(request, response);
         }
     }
 
