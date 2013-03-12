@@ -21,15 +21,11 @@
         <td>income tax result acquired</td>
     </tr>
     <tr>
-        <td>Health Insurance</td>
-        <td>Health Ins. result acquired</td>
+        <td>Misc. Expenses</td>
+
     </tr>
     <tr>
-        <td>Misc. Insurance</td>
-        <td>Misc. ins. result acquired</td>
-    </tr>
-    <tr>
-        <td>Car Payment</td>
+        <td>Car Expenses</td>
         <td>Car result acquired</td>
         <td><form method="get" action="aspirations.do"><input type="submit" value="Revise"></form></td>
     </tr>
@@ -53,7 +49,8 @@
     </tr>
     <tr>
         <td>Discretionary Income</td>
-        <td>${salary<%--subtract other results--%>}</td>
+        <%--subtract other results--%>
+        <td>${salary}</td>
     </tr>
 </table>
 <input type="submit" value="Print">

@@ -45,9 +45,9 @@
 
     <div id="DinnerSlider" class="slider"></div>
     <br/>
-    4. On average, how much do you spend on video games per month?<br/>
+    4. On average, how much do you spend on entertainment per month? (movies, video games, etc.)<br/>
     <%--Insert slider ranging 0-some number--%>
-    <label for="VideoGamesBudget">Money Spent: </label>
+    <label for="VideoGamesBudget">Money Spent: $</label>
     <input type="text" name="gameSpending" id="VideoGamesBudget" style="border: 0; color: #EA9919; font-weight: bold;">
 
     <div id="VideoGameSlider" class="slider"></div>

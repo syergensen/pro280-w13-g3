@@ -62,7 +62,7 @@ public class LoginServlet extends HttpServlet {
             request.login(username, DUMMY_PASSWORD);
             response.sendRedirect(request.getContextPath());
         } catch(ServletException e) {
-            request.getRequestDispatcher("/WEB-INF/login/login_error.jsp").forward(request, response);
+
         }
     }
 }
