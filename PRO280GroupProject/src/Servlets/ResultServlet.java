@@ -47,7 +47,6 @@ public class ResultServlet extends HttpServlet {
         double incomeTax = salary * taxPercent;
         double incomeTaxPerMonth = incomeTax / 12;
 
-        double discretionaryIncome = salaryPerMonth - studentLoanPayment - incomeTaxPerMonth;
 
         //Miscellanious
         double miscellaneous;
@@ -55,7 +54,10 @@ public class ResultServlet extends HttpServlet {
         double monthlyFoodExpense = (foodBudgetWeekly * 52) / 12;
         double gameSpending = (Double) session.getAttribute("lifestyle_gameSpending");
         double otherSpending = (Double) session.getAttribute("other_spending");
-        miscellaneous = foodBudgetWeekly + monthlyFoodExpense + gameSpending;
+        miscellaneous = foodBudgetWeekly + monthlyFoodExpense + gameSpending + otherSpending;
+
+
+        double discretionaryIncome = salaryPerMonth - studentLoanPayment - incomeTaxPerMonth - miscellaneous;
 
         request.setAttribute("salary", salaryPerMonth);
         request.setAttribute("studentLoans", studentLoanPayment);
