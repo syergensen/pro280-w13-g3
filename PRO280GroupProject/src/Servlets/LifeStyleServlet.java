@@ -1,6 +1,5 @@
 package Servlets;
 
-import Model.DatabaseEntities.SelectItem;
 import Model.Managers.SelectGroupManager;
 import Model.Managers.SelectItemManager;
 
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * A servlet meant to set up and receive the post of the LifeStyle.jsp page
@@ -32,7 +30,7 @@ public class LifeStyleServlet extends HttpServlet {
         HttpSession session = request.getSession();
         // HousingSituation
         session.setAttribute("lifestyle_housing", request.getParameter("housing"));
-        try{
+        try {
             // MonthlyRent
             double rent = Double.parseDouble(request.getParameter("rent"));
             session.setAttribute("lifestyle_rent", rent);
@@ -40,19 +38,16 @@ public class LifeStyleServlet extends HttpServlet {
             double bills = Double.parseDouble(request.getParameter("bills"));
             session.setAttribute("lifestyle_bills", bills);
 
-            // DietLunchEatOutWeekly
-            int lunchDays = Integer.parseInt(request.getParameter("lunchDays"));
-            session.setAttribute("lifestyle_lunchDays", lunchDays);
-            // DietDinnerEatOutWeekly
-            int dinnerDays = Integer.parseInt(request.getParameter("dinnerDays"));
-            session.setAttribute("lifestyle_dinnerDays", dinnerDays);
+            // Weekly food money spent
+            double foodBill = Double.parseDouble(request.getParameter("weeklyFoodMoney"));
+            session.setAttribute("weekly_food_budget", foodBill);
             // MonthlyVideoGameTime
-            int gameSpending = Integer.parseInt(request.getParameter("gameSpending"));
+            double gameSpending = Double.parseDouble(request.getParameter("gameSpending"));
             session.setAttribute("lifestyle_gameSpending", gameSpending);
 
             response.sendRedirect("./postGraduation.do");
 //            request.getRequestDispatcher(getServletContext().getInitParameter("aspirations")).forward(request, response);
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             request.setAttribute("error", "Please enter a number.");
             request.getRequestDispatcher(getServletContext().getInitParameter("lifestyle")).forward(request, response);
         }

@@ -29,10 +29,15 @@ public class ResultServlet extends HttpServlet {
         // Get QuarterExtra default=0;
         HttpSession session = request.getSession();
 
-        String degree = (String)session.getAttribute("school_program");
-        String region = (String)session.getAttribute("aspirations_region");
+        String degree = (String) session.getAttribute("school_program");
+        String region = (String) session.getAttribute("aspirations_region");
 
-        request.setAttribute("salary", (salaryManager.getSalaryByDegreeAndRegion(degree, region).getSalary())/12);
+        request.setAttribute("salary", (salaryManager.getSalaryByDegreeAndRegion(degree, region).getSalary()) / 12);
+        request.getRequestDispatcher(getServletContext().getInitParameter("result")).forward(request, response);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher(getServletContext().getInitParameter("result")).forward(request, response);
     }
 }
