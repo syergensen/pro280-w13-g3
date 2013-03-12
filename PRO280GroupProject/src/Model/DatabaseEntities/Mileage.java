@@ -15,8 +15,8 @@ public class Mileage {
     @Column(name = "mileageId", nullable = false)
     private int mileageId;
 
-    @Column(name = "type", nullable = false)
-    private String type;
+    @Column(name = "quality", nullable = false)
+    private String quality;
 
     @Column(name = "cost", nullable = false)
     private int cost;
@@ -29,12 +29,12 @@ public class Mileage {
         this.mileageId = mileageId;
     }
 
-    public String getType() {
-        return type;
+    public String getQuality() {
+        return quality;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setQuality(String quality) {
+        this.quality = quality;
     }
 
     public int getCost() {

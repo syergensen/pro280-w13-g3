@@ -15,8 +15,8 @@ public class Car {
     @Column(name = "carId", nullable = false)
     private int carId;
 
-    @Column(name = "type", nullable = false)
-    private String type;
+    @Column(name = "quality", nullable = false)
+    private String quality;
 
     @Column(name = "high", nullable = false)
     private int high;
@@ -35,12 +35,12 @@ public class Car {
         this.carId = carId;
     }
 
-    public String getType() {
-        return type;
+    public String getQuality() {
+        return quality;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setQuality(String quality) {
+        this.quality = quality;
     }
 
     public int getHigh() {

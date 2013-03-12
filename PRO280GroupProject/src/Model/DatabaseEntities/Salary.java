@@ -21,6 +21,9 @@ public class Salary {
     @Column(name = "salary", nullable = false)
     int salary;
 
+    @Column(name = "taxBracket")
+    private double taxBracket;
+
     public int getSalary() {
         return salary;
     }
@@ -29,4 +32,11 @@ public class Salary {
         this.salary = salary;
     }
 
+    public double getTaxBracket() {
+        return taxBracket;
+    }
+
+    public void setTaxBracket(double taxBracket) {
+        this.taxBracket = taxBracket;
+    }
 }//end of class

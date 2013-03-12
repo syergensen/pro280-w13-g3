@@ -81,4 +81,7 @@ CREATE TABLE `users_groups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1$$
 delimiter $$
 -- Creates the view...
-CREATE ALGORITHM=UNDEFINED DEFINER=`cknox`@`%` SQL SECURITY DEFINER VIEW `vlogin` AS select `u`.`name` AS `username`,`u`.`password` AS `password`,`g`.`name` AS `groupname` from ((`users` `u` join `users_groups` `ug` on((`u`.`user_id` = `ug`.`user_id`))) join `groups` `g` on((`ug`.`group_id` = `g`.`group_id`)))$$
+CREATE VIEW vlogin AS
+    SELECT u.name AS username, u.password AS password, g.name AS groupname
+    FROM users u JOIN users_groups ug ON u.user_id = ug.user_id
+    JOIN groups g ON ug.group_id = g.group_id;

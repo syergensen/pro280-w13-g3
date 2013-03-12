@@ -20,12 +20,6 @@ public class SelectItem {
     @Column(name = "itemName", length = 20, nullable = false)
     String itemName;
 
-//    @Column(name = "groupId")
-//    Integer groupId;
-//
-//    @JoinTable(name = "selectGroup", joinColumns = @JoinColumn(name = "groupId", referencedColumnName = "groupId"))
-//    @ManyToOne(optional = false, fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-//    SelectGroup group;
     @ManyToOne(optional = false)
     @JoinColumn(name = "groupId")
     private SelectGroup selectGroup;

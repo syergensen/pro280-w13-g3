@@ -16,11 +16,13 @@ import javax.persistence.Table;
 public class Region {
     @Id
     @Column(name = "regionName")
-    String regionName;
+    private String regionName;
+
     @Column(name = "rent")
-    int rent;
+    private int rent;
+
     @Column(name = "mortgage")
-    int mortgage;
+    private int mortgage;
 
     public String getRegionName() {
         return regionName;

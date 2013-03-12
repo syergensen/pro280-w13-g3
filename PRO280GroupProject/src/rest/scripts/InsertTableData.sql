@@ -15,8 +15,8 @@ Questions regarding the information contained in this tool may be directed to th
 
 -- -- Inserts
 -- Cars
-Insert into cars(type,high,middle,low) values('New',70000,25000,15000);
-Insert into cars(type,high,middle,low) values('Used',40000,12000,5000);
+Insert into cars(quality,high,middle,low) values('New',70000,25000,15000);
+Insert into cars(quality,high,middle,low) values('Used',40000,12000,5000);
 -- Mileage
 Insert into mileage(type,cost) values('high',155);
 Insert into mileage(type,cost) values('average',209);
@@ -38,13 +38,13 @@ Insert into Regions values('West',976,1167);
 
 -- Enter Salaries --
 	-- BSCS
-	INSERT INTO Salaries values('BSCS','New England',73268);
-	INSERT INTO Salaries values('BSCS','Mid-Atlantic',75867);
-	INSERT INTO Salaries values('BSCS','SouthEast',68721);
-	INSERT INTO Salaries values('BSCS','MidWest',65705);
-	INSERT INTO Salaries values('BSCS','SouthWest',70898);
-	INSERT INTO Salaries values('BSCS','Mountain-plains',68550);
-	INSERT INTO Salaries values('BSCS','West',73615);
+	INSERT INTO Salaries values('BSCS','New England',73268,0.25);
+	INSERT INTO Salaries values('BSCS','Mid-Atlantic',75867,0.25);
+	INSERT INTO Salaries values('BSCS','SouthEast',68721,0.25);
+	INSERT INTO Salaries values('BSCS','MidWest',65705,0.25);
+	INSERT INTO Salaries values('BSCS','SouthWest',70898,0.25);
+	INSERT INTO Salaries values('BSCS','Mountain-plains',68550,0.25);
+	INSERT INTO Salaries values('BSCS','West',73615,0.25);
 	-- 
 		-- BSGD
 	INSERT INTO Salaries values('BSGD','New England',76801);
@@ -56,22 +56,22 @@ Insert into Regions values('West',976,1167);
 	INSERT INTO Salaries values('BSGD','West',75978);
 	-- 
 		-- BSTM
-	INSERT INTO Salaries values('BSTM','New England',94333);
-	INSERT INTO Salaries values('BSTM','Mid-Atlantic',95375);
-	INSERT INTO Salaries values('BSTM','SouthEast',92750);
-	INSERT INTO Salaries values('BSTM','MidWest',86300);
-	INSERT INTO Salaries values('BSTM','SouthWest',86000);
-	INSERT INTO Salaries values('BSTM','Mountain-plains',87500);
-	INSERT INTO Salaries values('BSTM','West',75000);
+	INSERT INTO Salaries values('BSTM','New England',94333,0.28);
+	INSERT INTO Salaries values('BSTM','Mid-Atlantic',95375,0.28);
+	INSERT INTO Salaries values('BSTM','SouthEast',92750,0.28);
+	INSERT INTO Salaries values('BSTM','MidWest',86300,.025);
+	INSERT INTO Salaries values('BSTM','SouthWest',86000,.025);
+	INSERT INTO Salaries values('BSTM','Mountain-plains',87500,.025);
+	INSERT INTO Salaries values('BSTM','West',75000,.025);
 	-- 
 		-- BSWD
-	INSERT INTO Salaries values('BSWD','New England',75735);
-	INSERT INTO Salaries values('BSWD','Mid-Atlantic',86367);
-	INSERT INTO Salaries values('BSWD','SouthEast',70002);
-	INSERT INTO Salaries values('BSWD','MidWest',71370);
-	INSERT INTO Salaries values('BSWD','SouthWest',70818);
-	INSERT INTO Salaries values('BSWD','Mountain-plains',70710);
-	INSERT INTO Salaries values('BSWD','West',74370);
+	INSERT INTO Salaries values('BSWD','New England',75735,.025);
+	INSERT INTO Salaries values('BSWD','Mid-Atlantic',86367,.025);
+	INSERT INTO Salaries values('BSWD','SouthEast',70002,.025);
+	INSERT INTO Salaries values('BSWD','MidWest',71370,.025);
+	INSERT INTO Salaries values('BSWD','SouthWest',70818,.025);
+	INSERT INTO Salaries values('BSWD','Mountain-plains',70710,.025);
+	INSERT INTO Salaries values('BSWD','West',74370,.025);
 -- /Enter Salaries
 
 
