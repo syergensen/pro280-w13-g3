@@ -42,7 +42,7 @@
             step="any" required>
     </br>
     <%--Insert slider ranging 0-7--%>
-    3. How much money do you spend on video games each month?
+    3. How much money do you spend on entertainment such as movies or video games each month?
     $<input type="number" name="gameSpending" value="${lifestyle_gameSpending eq null ? 0 : lifestyle_gameSpending}"
             step="any" required>
     <br/>
