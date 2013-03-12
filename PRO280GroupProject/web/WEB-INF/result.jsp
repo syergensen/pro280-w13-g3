@@ -21,8 +21,12 @@
         <td>$${salary}/month</td>
     </tr>
     <tr>
+        <td>Student Loan</td>
+        <td>$${studentLoans}/month</td>
+    </tr>
+    <tr>
         <td>Income Tax</td>
-        <td>income tax result acquired</td>
+        <td>$${incomeTax}/month</td>
     </tr>
     <tr>
         <td>Misc. Expenses</td>
@@ -60,7 +64,7 @@
     <tr>
         <td>Discretionary Income</td>
         <%--subtract other results--%>
-        <td>${salary}</td>
+        <td>$${discretionaryIncome}/month</td>
     </tr>
 </table>
 <input type="submit" value="Print">

@@ -21,6 +21,13 @@ public class NuDegreeManager {
     @PersistenceContext
     EntityManager em;
 
+    public NuDegrees getQuarters(String degree)
+    {
+        TypedQuery<NuDegrees> query = em.createQuery("select d from NuDegrees d where d.degree = :degree", NuDegrees.class);
+        query.setParameter("degree", degree);
+        return query.getSingleResult();
+    }
+
     public List<NuDegrees> getNuDegrees() {
         TypedQuery<NuDegrees> allDegQuery = em.createQuery("Select d from NuDegrees d", NuDegrees.class);
         return allDegQuery.getResultList();

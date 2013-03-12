@@ -42,10 +42,9 @@ public class SchoolServlet extends HttpServlet {
         try{
             //FullTime,PartTime
             int fullTime = Integer.parseInt(request.getParameter("fullTime"));
-            session.setAttribute("school_fullTime", fullTime);
-
             int partTime = Integer.parseInt(request.getParameter("partTime"));
-            session.setAttribute("school_partTime", partTime);
+            session.setAttribute("school_extraQuarters", fullTime+partTime);
+
             //LoanTypePercentage
             double loanPercent = Double.parseDouble(request.getParameter("loanPercent"));
             session.setAttribute("school_loanPercent", loanPercent);

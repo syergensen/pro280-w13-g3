@@ -1,5 +1,6 @@
 package Servlets;
 
+import Model.Managers.NuDegreeManager;
 import Model.Managers.SalaryManager;
 
 import javax.ejb.EJB;
@@ -21,6 +22,8 @@ import java.io.IOException;
 public class ResultServlet extends HttpServlet {
     @EJB
     SalaryManager salaryManager;
+    @EJB
+    NuDegreeManager degreeManager;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Model Calculate:
@@ -32,7 +35,25 @@ public class ResultServlet extends HttpServlet {
         String degree = (String) session.getAttribute("school_program");
         String region = (String) session.getAttribute("aspirations_region");
 
-        request.setAttribute("salary", (salaryManager.getSalaryByDegreeAndRegion(degree, region).getSalary()) / 12);
+        double salary = salaryManager.getSalaryByDegreeAndRegion(degree, region).getSalary();
+        double salaryPerMonth = salary/12;
+
+        double studentLoanPercent = (Double)session.getAttribute("school_loanPercent");
+        int extraQuarters = (Integer)session.getAttribute("school_extraQuarters");
+        int quarters = (degreeManager.getQuarters(degree).getQuarters())+extraQuarters;
+        double studentLoanPayment = ((quarters*7200)/120)*(studentLoanPercent/100);
+
+        double taxPercent = salaryManager.getSalaryByDegreeAndRegion(degree, region).getTaxBracket();
+        double incomeTax = salary*taxPercent;
+        double incomeTaxPerMonth = incomeTax/12;
+
+        double discretionaryIncome = salaryPerMonth - studentLoanPayment - incomeTaxPerMonth;
+
+        request.setAttribute("salary", salaryPerMonth);
+        request.setAttribute("studentLoans", studentLoanPayment);
+        request.setAttribute("incomeTax", incomeTaxPerMonth);
+
+        request.setAttribute("discretionaryIncome", discretionaryIncome);
         request.getRequestDispatcher(getServletContext().getInitParameter("result")).forward(request, response);
     }
 

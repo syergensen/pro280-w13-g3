@@ -44,6 +44,7 @@ CREATE TABLE `Salaries` (
   `degree` varchar(10) NOT NULL,
   `region` varchar(18) NOT NULL,
   `salary` int(11) NOT NULL,
+  `taxBracket` double NOT NULL,
   PRIMARY KEY (`degree`,`region`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1$$
 delimiter $$
