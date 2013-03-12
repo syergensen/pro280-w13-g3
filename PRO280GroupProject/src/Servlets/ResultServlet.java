@@ -36,22 +36,31 @@ public class ResultServlet extends HttpServlet {
         String region = (String) session.getAttribute("aspirations_region");
 
         double salary = salaryManager.getSalaryByDegreeAndRegion(degree, region).getSalary();
-        double salaryPerMonth = salary/12;
+        double salaryPerMonth = salary / 12;
 
-        double studentLoanPercent = (Double)session.getAttribute("school_loanPercent");
-        int extraQuarters = (Integer)session.getAttribute("school_extraQuarters");
-        int quarters = (degreeManager.getQuarters(degree).getQuarters())+extraQuarters;
-        double studentLoanPayment = ((quarters*7200)/120)*(studentLoanPercent/100);
+        double studentLoanPercent = (Double) session.getAttribute("school_loanPercent");
+        int extraQuarters = (Integer) session.getAttribute("school_extraQuarters");
+        int quarters = (degreeManager.getQuarters(degree).getQuarters()) + extraQuarters;
+        double studentLoanPayment = ((quarters * 7200) / 120) * (studentLoanPercent / 100);
 
         double taxPercent = salaryManager.getSalaryByDegreeAndRegion(degree, region).getTaxBracket();
-        double incomeTax = salary*taxPercent;
-        double incomeTaxPerMonth = incomeTax/12;
+        double incomeTax = salary * taxPercent;
+        double incomeTaxPerMonth = incomeTax / 12;
 
         double discretionaryIncome = salaryPerMonth - studentLoanPayment - incomeTaxPerMonth;
+
+        //Miscellanious
+        double miscellaneous;
+        double foodBudgetWeekly = (Double) session.getAttribute("weekly_food_budget");
+        double monthlyFoodExpense = (foodBudgetWeekly * 52) / 12;
+        double gameSpending = (Double) session.getAttribute("lifestyle_gameSpending");
+        double otherSpending = (Double) session.getAttribute("other_spending");
+        miscellaneous = foodBudgetWeekly + monthlyFoodExpense + gameSpending;
 
         request.setAttribute("salary", salaryPerMonth);
         request.setAttribute("studentLoans", studentLoanPayment);
         request.setAttribute("incomeTax", incomeTaxPerMonth);
+        request.setAttribute("miscellaneous", miscellaneous);
 
         request.setAttribute("discretionaryIncome", discretionaryIncome);
         request.getRequestDispatcher(getServletContext().getInitParameter("result")).forward(request, response);

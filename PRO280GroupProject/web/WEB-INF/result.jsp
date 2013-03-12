@@ -18,19 +18,19 @@
 <table>
     <tr>
         <td>Salary</td>
-        <td>$${salary}/month</td>
+        <td>$${salary eq null ? 0 : salary}/month</td>
     </tr>
     <tr>
         <td>Student Loan</td>
-        <td>$${studentLoans}/month</td>
+        <td>$${studentLoans eq null ? 0: studentLoans}/month</td>
     </tr>
     <tr>
         <td>Income Tax</td>
-        <td>$${incomeTax}/month</td>
+        <td>$${incomeTax eq null ? 0 : incomeTax}/month</td>
     </tr>
     <tr>
         <td>Misc. Expenses</td>
-
+        <td>${miscellaneous eq null ? 0 : miscellaneous}</td>
     </tr>
     <tr>
         <td>Car Expenses</td>

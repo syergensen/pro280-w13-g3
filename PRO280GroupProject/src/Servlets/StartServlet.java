@@ -21,11 +21,13 @@ import java.io.IOException;
 public class StartServlet extends HttpServlet {
     @EJB
     AppPropertiesManager appManager;
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //If agreed to terms and service
-        if(request.getParameter("agree")!=null)
-        {
+        if (request.getParameter("agree") != null) {
             response.sendRedirect("./school.do");
+        } else {
+            response.sendRedirect("/logout.do");
         }
     }
 

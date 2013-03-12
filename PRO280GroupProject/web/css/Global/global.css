@@ -28,9 +28,24 @@
 }
 
 .logo {
+    border: solid;
+    border-color: blue;
     display: block;
-    width: 806;
-    height: 268;
+    /*width: 806;*/
+    /*height: 268;*/
+    width: 285;
+    height: 58;
+    top: 0;
+    left: 0;
     background-repeat: no-repeat;
     /*background-image: url("http://branding.neumont.edu/graphicslibrary/Neumont_Logo_CMYK.jpg");*/
+    /*background-image: url("http://www.neumont.edu/cmsimages/neumont-logo-home.jpg");*/
+}
+
+#JabberWockText {
+    top: 0;
+    left: 285;
+    font: Georgia;
+    color: #EA9919;
+    font-size: 38;
 }
