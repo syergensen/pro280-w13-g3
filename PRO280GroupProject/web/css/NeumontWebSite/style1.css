@@ -1,0 +1,286 @@
+﻿body {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.2em;
+    color: #333333;
+    background-color: #000000;
+    margin: 0px;
+}
+/* IE needs this to make the font inside a table be the same
+   size as the one specified in the body class; stupid. */
+table {
+    font-size: 100%;
+}
+
+th {
+    font-weight: bold;
+    text-align: right;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-transform: none;
+    font-weight: normal;
+    line-height: normal;
+}
+
+h1 {
+    color: #EA9919;
+    font-size: 210%;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h2 {
+    font-size: 130%;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 13px;
+}
+
+h5 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-style: italic;
+}
+
+span.h2 {
+    font-size: 130%;
+    font-weight: bold;
+}
+
+span.headerLink {
+    font-size: 75%;
+}
+
+a {
+}
+
+    a:link {
+        color: #ea9919;
+        text-decoration: underline;
+    }
+
+    a:visited {
+        color: #ea9919;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    a:active {
+    }
+
+ul {
+    list-style-image: disc outside;
+}
+
+ol {
+    list-style: decimal outside;
+}
+
+div.centerContent {
+}
+
+.small {
+    font-family: Georgia, "Times New Roman", Times, Serif;
+    color: #333333;
+    font-size: 10px;
+    line-height: 1.2em;
+}
+
+img {
+    border: 0px;
+}
+
+div#menu1, div#menu2, div#contentWrapper3, div#footer {
+    padding: 0;
+    width: 980px;
+    margin: 0 auto;
+    border-top-width: 1px; /* 2010-08-31 pliska: Hate leaving this line here here but I'm on a deadline. If removed, the secondary nav bar becomes taller on some steps */
+    border-right-width: 0; /* see note above */
+    border-bottom-width: 0; /* see note above */
+    border-left-width: 0; /* see note above */
+    border-style: dashed; /* see note above */
+    border-color: transparent; /* see note above */
+}
+
+div#menu1, div#menu2 {
+    height: 36px;
+}
+
+div#menu2 {
+    text-align: center;
+}
+
+div#menu2Wrapper {
+    background: url(/nuservices/resources/verite/menu-grad.jpg) repeat-x top #434343;
+}
+
+div#mainContent {
+    width: 725px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+div#contentWrapper1 {
+    background: #DFDFDF url(/nuservices/resources/verite/bg-main.jpg) repeat-y center;
+}
+
+div#contentWrapper2 {
+    background: url(/nuservices/resources/verite/bg-side.jpg) no-repeat transparent center top;
+    min-height: 809px;
+    max-width: 100%;
+}
+
+div#contentWrapper3 {
+}
+
+div#footer {
+    font-size: 12px;
+    color: #656565;
+}
+
+    div#footer h3 {
+        color: #CCC;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 0;
+        margin-bottom: 0;
+        text-transform: uppercase;
+    }
+
+div#footer {
+    padding: 20px 0;
+}
+
+div#ftr1, div#ftr2 {
+    float: left;
+    padding: 0 25px;
+}
+
+div#ftr1 {
+    width: 750px;
+    border-right: 1px solid #656565;
+}
+
+div#footer div#ftr2 {
+    width: 115px;
+}
+
+ul.nav {
+    font-size: 12px;
+    font-weight: bold;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+    ul.nav li {
+        color: #999999;
+        float: left;
+    }
+
+        ul.nav li a {
+            display: block;
+            line-height: 36px;
+            text-decoration: none;
+            padding: 0px 9px;
+            text-transform: uppercase;
+        }
+
+    ul.nav a:link, ul.nav a:visited, ul.nav a:active {
+        color: #FFCC00;
+    }
+
+    ul.nav a:hover {
+        background: #FFCC00 url(/nuservices/resources/verite/menu-grad-hover.jpg) repeat-x top;
+        color: #000000;
+    }
+
+    ul.nav #stuLogin {
+        background: url(/cmsimages/icn-login.jpg) 0 50% no-repeat;
+        padding-left: 20px;
+    }
+
+        ul.nav #stuLogin:hover {
+            color: #FFCC00;
+        }
+
+
+/************************/
+#hdr {
+    float: left;
+    padding: 3px 0 50px;
+    width: 980px;
+}
+
+    #hdr #logo {
+        float: left;
+    }
+
+#hdr-btns {
+    float: right;
+    position: relative;
+    width: 655px;
+}
+
+    #hdr-btns img {
+        float: left;
+        margin-right: 3px;
+        position: absolute;
+        top: -54px;
+    }
+
+    #hdr-btns #rqi {
+        left: 0;
+    }
+
+    #hdr-btns #apn {
+        left: 127px;
+    }
+
+    #hdr-btns #qq {
+        left: 254px;
+    }
+
+    #hdr-btns #sb {
+        background: url("/cmsimages/search-bg.jpg") no-repeat scroll 0 0 transparent;
+        float: left;
+        font-size: 12px;
+        height: 47px;
+        left: 381px;
+        padding: 4px 0 0 11px;
+        position: absolute;
+        top: -54px;
+        width: 263px;
+    }
+
+#sb input {
+    background: none repeat scroll 0 0 #E9E9E9;
+    border: 1px solid #E9E9E9;
+    height: 19px;
+    width: 207px;
+    margin: 0;
+}
+
+#sb button {
+    background: url("/cmsimages/sb-b.jpg") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    height: 21px;
+    width: 29px;
+}
+/*************************/
+.indent {
+    margin-left: 20px;
+}
+
+span.format-hint {
+    font-size: smaller;
+    font-family: Courier New;
+}

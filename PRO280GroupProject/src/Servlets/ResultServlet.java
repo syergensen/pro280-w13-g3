@@ -3,6 +3,7 @@ package Servlets;
 import Model.Managers.CarManager;
 import Model.Managers.MileageManager;
 import Model.Managers.NuDegreeManager;
+import Model.Managers.RegionManager;
 import Model.Managers.SalaryManager;
 
 import javax.ejb.EJB;
@@ -108,4 +109,22 @@ public class ResultServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher(getServletContext().getInitParameter("result")).forward(request, response);
     }
-}
+
+    public int getStudentHousingRent(HttpSession session) {
+        int totalHousingOrRent = 0;// If you are commuting for free
+        String housingSituation = (String) session.getAttribute("lifestyle_housing");
+        if (housingSituation != null) {
+            String s = new String(housingSituation);
+            s = s.toLowerCase();
+            if (s.contains("Neumont")) {
+                totalHousingOrRent = RegionManager.NUEMONT_HOUSING_COST;
+            } else if (s.contains("Rent")) {
+                int utility = (Integer) session.getAttribute("lifestyle_bills");
+                int rent = (Integer) session.getAttribute("lifestyle_rent");
+                // If we are Apartment based
+                totalHousingOrRent = utility + rent;
+            }
+        }
+        return totalHousingOrRent;
+    }
+}//end of class

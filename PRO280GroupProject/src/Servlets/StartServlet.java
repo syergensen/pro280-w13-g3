@@ -26,8 +26,6 @@ public class StartServlet extends HttpServlet {
         //If agreed to terms and service
         if (request.getParameter("agree") != null) {
             response.sendRedirect("./school.do");
-        } else {
-            response.sendRedirect("/logout.do");
         }
     }
 
