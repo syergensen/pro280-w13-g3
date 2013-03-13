@@ -47,7 +47,7 @@
             step="any" required>
     <br/>
     4. Money spent on other things not mentioned above per month:
-    <input type="number" name="otherSpending" value="${other_Spending eq null ? 0: other_Spending}" step="any" required>
+    $<input type="number" name="otherSpending" value="${other_Spending eq null ? 0: other_Spending}" step="any" required>
     <br/>
     <input type="submit" value="Next Step">
 </form>

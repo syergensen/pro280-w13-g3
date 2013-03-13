@@ -14,6 +14,7 @@
 <h2><i>In order to provide more accurate results we would like to know more about your aspirations, things that you
     desire to have after graduation:</i></h2>
 
+<c:if test="${requestScope.error ne null}">${requestScope.error}<br/></c:if>
 <form method="post" action="postGraduation.do">
     1. After graduating Neumont what is your preferred region to live in the United States:
     <select name="region">
@@ -39,6 +40,7 @@
             <option value="${quality.itemName}" ${sessionScope.aspirations_carQuality eq quality.itemName ? 'selected' : ''}>${quality.itemName}</option>
         </c:forEach>
     </select>
+    Interest Payment: <input type="number" name="interest" min="0" step="any" value="${aspirations_interest eq null ? 0 : aspirations_interest}">%
     <br/>
     3. Please describe your preferred house:<br/>
     <c:forEach items="${housePreferences}" var="preference">

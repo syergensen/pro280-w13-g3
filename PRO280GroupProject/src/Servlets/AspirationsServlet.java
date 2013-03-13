@@ -41,9 +41,16 @@ public class AspirationsServlet extends HttpServlet {
         session.setAttribute("aspirations_carCondition", request.getParameter("carCondition"));
         session.setAttribute("aspirations_carFuelEconomy", request.getParameter("carFuelEconomy"));
         session.setAttribute("aspirations_carQuality", request.getParameter("carQuality"));
-        //PrefferedLivingCondition
-        session.setAttribute("aspirations_house", request.getParameter("house"));
-        request.getRequestDispatcher("/result.do").forward(request, response);
+        try{
+            double interest = Double.parseDouble(request.getParameter("interest"));
+            session.setAttribute("aspirations_interest", interest);
+            //PrefferedLivingCondition
+            session.setAttribute("aspirations_house", request.getParameter("house"));
+            request.getRequestDispatcher("/result.do").forward(request, response);
+        }catch (NumberFormatException e){
+            request.setAttribute("error", "Please enter a number.");
+            request.getRequestDispatcher(getServletContext().getInitParameter("aspirations")).forward(request, response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

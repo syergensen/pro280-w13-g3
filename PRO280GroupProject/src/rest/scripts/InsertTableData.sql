@@ -78,28 +78,29 @@ Insert into Regions values('West',976,1167);
 -- Group selections --
 	-- inSchoolHousing
 	Insert into selectGroup values( 1,'InSchoolHousing' );
-	Insert into selectItem(itemName, groupId) values('Neumont University Housing', 1);
+	Insert into selectItem(itemName, groupId) values('Neumont University housing', 1);
 	Insert into selectItem(itemName, groupId) values('Live with Family or friends for free', 1);
 	Insert into selectItem(itemName, groupId) values('Renting an apartment or similar', 1);
 	-- afterSchoolHousing
 	Insert into selectGroup values( 2,'AfterHousing' );
 	Insert into selectItem(itemName, groupId) values('Own', 2);
 	Insert into selectItem(itemName, groupId) values('Rent', 2);
-	Insert into selectItem(itemName, groupId) values('Live with Parents', 2);
+	Insert into selectItem(itemName, groupId) values('Live with parents', 2);
 	-- Car age
 	Insert into selectGroup values( 3,'CarAge' );
 	Insert into selectItem(itemName, groupId) values('New', 3);
 	Insert into selectItem(itemName, groupId) values('Used', 3);
+	Insert into selectItem(itemName, groupId) values('No car', 3);
 	-- Car Fuel
 	Insert into selectGroup values( 4,'CarFuel' );
 	Insert into selectItem(itemName, groupId) values('Average', 4);
-	Insert into selectItem(itemName, groupId) values('Above Average', 4);
-	Insert into selectItem(itemName, groupId) values('Below Average', 4);
+	Insert into selectItem(itemName, groupId) values('Above average fuel economy', 4);
+	Insert into selectItem(itemName, groupId) values('Below average fuel economy', 4);
 	-- Car Rating
 	Insert into selectGroup values( 5,'CarRating' );
 	Insert into selectItem(itemName, groupId) values('Average', 5);
-	Insert into selectItem(itemName, groupId) values('Above Average', 5);
-	Insert into selectItem(itemName, groupId) values('Below Average', 5);
+	Insert into selectItem(itemName, groupId) values('Above average car', 5);
+	Insert into selectItem(itemName, groupId) values('Below average car', 5);
 
 	-- Neumont Quarters --
 	Insert into selectGroup values( 6,'Quarters' );

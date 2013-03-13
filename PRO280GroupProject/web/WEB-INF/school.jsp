@@ -54,7 +54,7 @@
     Loan Information:<br/>
     Total amount of grants/scholarships:
     $<input type="number" name="grants" value="${school_grants eq null ? 0 : school_grants}" min="0.0" step="any"><br/>
-    Interest Rate:
+    Monthly interest Rate:
     <input type="number" name="interest" value="${school_interest eq null ? 0 : school_interest}" min="0.0" max="100.0"
            step="any">%
     <br/>

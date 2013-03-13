@@ -20,6 +20,13 @@ public class CarManager {
     @PersistenceContext
     private EntityManager em;
 
+    public Car getCarByQuality(String quality)
+    {
+        TypedQuery<Car> query = em.createQuery("select c from Car c where c.quality = :quality", Car.class);
+        query.setParameter("quality", quality);
+        return query.getSingleResult();
+    }
+
     public List<Car> getCars()
     {
         TypedQuery<Car> query = em.createQuery("select c from Car c", Car.class);

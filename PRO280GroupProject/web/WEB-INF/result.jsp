@@ -13,6 +13,7 @@
 <c:import url="tags/HeaderBand.tag"/>
 
 <form method="post" action="result.do">
+    <input type="hidden" name="additionalQuarter" value="1">
     <input type="submit" value="+1 Quarter">
 </form>
 <table>
@@ -30,20 +31,20 @@
     </tr>
     <tr>
         <td>Misc. Expenses</td>
-        <td>${miscellaneous eq null ? 0 : miscellaneous}</td>
+        <td>$${miscellaneous eq null ? 0 : miscellaneous}/month</td>
     </tr>
     <tr>
         <td>Car Expenses</td>
-        <td>Car result acquired</td>
+        <td>$${carExpenses eq null ? 0 : carExpenses}/month</td>
         <td>
-            <form method="get" action="aspirations.do"><input type="submit" value="Revise"></form>
+            <form method="get" action="postGraduation.do"><input type="submit" value="Revise"></form>
         </td>
     </tr>
     <tr>
         <td>Mortgage/Rent</td>
         <td>Mortgage/rent result acquired</td>
         <td>
-            <form method="get" action="aspirations.do"><input type="submit" value="Revise"></form>
+            <form method="get" action="postGraduation.do"><input type="submit" value="Revise"></form>
         </td>
     </tr>
     <tr>

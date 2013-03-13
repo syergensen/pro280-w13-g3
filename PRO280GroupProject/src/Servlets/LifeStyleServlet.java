@@ -40,7 +40,7 @@ public class LifeStyleServlet extends HttpServlet {
 
             // Weekly food money spent
             double foodBill = Double.parseDouble(request.getParameter("weeklyFoodMoney"));
-            session.setAttribute("weekly_food_budget", (foodBill * 52) / 12);
+            session.setAttribute("weekly_food_budget", foodBill);
             // MonthlyVideoGameTime
             double gameSpending = Double.parseDouble(request.getParameter("gameSpending"));
             session.setAttribute("lifestyle_gameSpending", gameSpending);

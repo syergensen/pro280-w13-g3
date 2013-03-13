@@ -43,6 +43,8 @@ public class SchoolServlet extends HttpServlet {
             //FullTime,PartTime
             int fullTime = Integer.parseInt(request.getParameter("fullTime"));
             int partTime = Integer.parseInt(request.getParameter("partTime"));
+            session.setAttribute("school_fullTime", fullTime);
+            session.setAttribute("school_partTime", partTime);
             session.setAttribute("school_extraQuarters", fullTime+partTime);
 
             //LoanTypePercentage
