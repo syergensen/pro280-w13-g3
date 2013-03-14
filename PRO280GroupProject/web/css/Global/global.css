@@ -1,0 +1,180 @@
+body {
+    margin:0;
+}
+
+#sm-c {
+    width: 100%;
+    float: left;
+    background: url(../cmsimages/smbg.jpg) repeat-x #434343;
+    position: relative;
+    z-index: 10;
+}
+img {
+    border: 0px;
+}
+
+div#menu1, div#menu2, div#contentWrapper3, div#footer {
+    padding: 0;
+    width: 980px;
+    margin: 0 auto;
+    border-top-width: 1px; /* 2010-08-31 pliska: Hate leaving this line here here but I'm on a deadline. If removed, the secondary nav bar becomes taller on some steps */
+    border-right-width: 0; /* see note above */
+    border-bottom-width: 0; /* see note above */
+    border-left-width: 0; /* see note above */
+    border-style: dashed; /* see note above */
+    border-color: transparent; /* see note above */
+}
+
+div#menu1, div#menu2 {
+    /*height: 36px;*/
+}
+
+ul.nav {
+    font-size: 12px;
+    font-weight: bold;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+ul.nav li {
+    color: #999999;
+    float: left;
+}
+
+ul.nav li a {
+    display: block;
+    line-height: 36px;
+    text-decoration: none;
+    padding: 0px 9px;
+    text-transform: uppercase;
+}
+
+ul.nav a:link, ul.nav a:visited, ul.nav a:active {
+    color: #FFCC00;
+}
+
+ul.nav a:hover {
+    background: #FFCC00 url(/nuservices/resources/verite/menu-grad-hover.jpg) repeat-x top;
+    color: #000000;
+}
+
+ul.nav #stuLogin {
+    background: url(/cmsimages/icn-login.jpg) 0 50% no-repeat;
+    padding-left: 20px;
+}
+
+ul.nav #stuLogin:hover {
+    color: #FFCC00;
+}
+
+#hc #hdr {
+    padding-bottom: 10px;
+}
+
+#hdr {
+    float: left;
+    width: 980px;
+}
+
+#hdr #logo {
+    float: left;
+}
+
+#hdr-btns {
+    float: right;
+    position: relative;
+    width: 655px;
+}
+
+#hdr-btns img {
+    float: left;
+    margin-right: 3px;
+    position: absolute;
+    top: -54px;
+}
+
+#hdr-btns #rqi {
+    left: 0px;
+}
+
+#hdr-btns #apn {
+    left: 127px;
+}
+
+#hdr-btns #qq {
+    left: 254px;
+}
+
+#hdr-btns #sb {
+    float: left;
+    background: url(../cmsimages/search-bg.jpg) no-repeat;
+    /*height: 47px;*/
+    width: 263px;
+    padding: 4px 0 0 11px;
+    position: absolute;
+    top: -54px;
+    left: 381px;
+    font-size: 12px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-transform: none;
+    font-weight: normal;
+    line-height: normal;
+}
+
+h1 {
+    color: #EA9919;
+    font-size: 210%;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h2 {
+    font-size: 130%;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 13px;
+}
+
+h5 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-style: italic;
+}
+
+/************************************/
+/* BEGIN overrides to R7 formatting */
+/************************************/
+label {
+    float: none;
+    display: inline;
+}
+
+td {
+    padding: 0px;
+}
+
+input {
+    margin: 3px 0;
+}
+
+/**********************************/
+/* END overrides to R7 formatting */
+/**********************************/
+
+.cssGuardian {
+    float: left;
+    padding: 40px;
+}
+
+.termsAndConditionsBorder {
+    border: solid;
+    border-width: 1px;
+    width: 50%;
+    height: 45%;
+    font-family: Verdana;
+    font-size: 18;
+}

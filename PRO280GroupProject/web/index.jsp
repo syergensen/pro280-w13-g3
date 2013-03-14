@@ -6,15 +6,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="css/NeumontWebSite/global.css"/>
-    <link rel="stylesheet" href="css/NeumontWebSite/forms.css"/>
-    <link rel="stylesheet" href="css/NeumontWebSite/style1.css"/>
     <title>Start</title>
+    <link rel="stylesheet" href="css/Global/global.css"
+    <%--<link rel="stylesheet" href="css/NeumontWebSite/global.css"/>--%>
+    <%--<link rel="stylesheet" href="css/NeumontWebSite/forms.css"/>--%>
+    <%--<link rel="stylesheet" href="css/NeumontWebSite/style1.css"/>--%>
+    <%--<link rel="stylesheet" href="http://www.neumont.edu/cmscss/content.css"/>--%>
 </head>
 <body>
 <c:import url="WEB-INF/tags/HeaderBand.tag"/>
-<div id="cc">
-    <div id="contentWrapper1">
+<div class="cssGuardian">
+    <div class="termsAndConditionsBorder">
         <c:choose>
             <c:when test="${not empty conditions}">
                 ${conditions}

@@ -1,13 +1,11 @@
-===============================================================
 <div id="hdr">
     <div id="hdr-btns">
-        <h1>Project Jabberwocky</h1>
+        <h1>Neumont Budgeting Assistant</h1>
     </div>
     <a href="./start.do">
         <img title="Neumont University. Encoding the Next_" id="logo" name="logo"
              alt="Neumont University. Encoding the Next_" src="http://www.neumont.edu/cmsimages/neumont-logo-home.jpg"></a>
 </div>
-===============================================================
 <div id="sm-c">
     <div id="menu1">
         <ul class="nav">
