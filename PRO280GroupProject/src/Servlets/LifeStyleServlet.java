@@ -41,14 +41,21 @@ public class LifeStyleServlet extends HttpServlet {
             // Weekly food money spent
             double foodBill = Double.parseDouble(request.getParameter("weeklyFoodMoney"));
             session.setAttribute("weekly_food_budget", foodBill);
+
             // MonthlyVideoGameTime
             double gameSpending = Double.parseDouble(request.getParameter("gameSpending"));
             session.setAttribute("lifestyle_gameSpending", gameSpending);
+
             // Other spending:
             double otherSpending = Double.parseDouble(request.getParameter("otherSpending"));
             session.setAttribute("other_spending", otherSpending);
+
+            //Savings
+            double savings = Double.parseDouble(request.getParameter("savings"));
+            session.setAttribute("lifestyle_savings", savings);
+
             response.sendRedirect("./postGraduation.do");
-//            request.getRequestDispatcher(getServletContext().getInitParameter("aspirations")).forward(request, response);
+
         } catch (NumberFormatException e) {
             request.setAttribute("error", "Please enter a number.");
             request.getRequestDispatcher(getServletContext().getInitParameter("lifestyle")).forward(request, response);

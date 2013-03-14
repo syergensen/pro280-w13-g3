@@ -31,6 +31,8 @@ public class ResultServlet extends HttpServlet {
     CarManager carManager;
     @EJB
     MileageManager mileageManager;
+    @EJB
+    RegionManager regionManager;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Model Calculate:
@@ -43,8 +45,12 @@ public class ResultServlet extends HttpServlet {
         String region = (String) session.getAttribute("aspirations_region");
 
         double salary = salaryManager.getSalaryByDegreeAndRegion(degree, region).getSalary();
-        double salaryPerMonth = salary / 12;
+        int salaryPerMonth = (int)(salary / 12);
 
+        //Savings
+        int savings = (Integer) session.getAttribute("lifestyle_savings");
+
+        //Student loan
         double studentLoanPercent = (Double) session.getAttribute("school_loanPercent");
         int extraQuarters = (Integer) session.getAttribute("school_extraQuarters");
         if(request.getParameter("additionalQuarter")!=null)
@@ -55,35 +61,37 @@ public class ResultServlet extends HttpServlet {
         int quarters = (degreeManager.getQuarters(degree).getQuarters()) + extraQuarters;
         double grants = (Double)session.getAttribute("school_grants");
         double schoolInterest = (Double)session.getAttribute("school_interest");
-        double initialSchoolPay = (quarters*7200)-grants;
+        double initialSchoolPay = (quarters*7200)-grants-savings;
         double studentLoanPayment = (((initialSchoolPay) / 120)+(initialSchoolPay*(schoolInterest/100))) * (studentLoanPercent / 100);
+        double studentHousingPayment = getStudentHousingRent(session);
+        int totalLoanPayment = (int)(studentLoanPayment + studentHousingPayment);
 
+        //Income tax
         double taxPercent = salaryManager.getSalaryByDegreeAndRegion(degree, region).getTaxBracket();
         double incomeTax = salary * taxPercent;
-        double incomeTaxPerMonth = incomeTax / 12;
+        int incomeTaxPerMonth = (int)(incomeTax / 12);
 
 
         //Miscellaneous
-        double miscellaneous;
         double foodBudgetWeekly = (Double) session.getAttribute("weekly_food_budget");
         double monthlyFoodExpense = (foodBudgetWeekly * 52) / 12;
         double gameSpending = (Double) session.getAttribute("lifestyle_gameSpending");
         double otherSpending = (Double) session.getAttribute("other_spending");
-        miscellaneous = foodBudgetWeekly + monthlyFoodExpense + gameSpending + otherSpending;
+        int miscellaneous = (int)(foodBudgetWeekly + monthlyFoodExpense + gameSpending + otherSpending);
 
         //Car
         String carCondition = (String)session.getAttribute("aspirations_carCondition");
         String carQuality = (String)session.getAttribute("aspirations_carQuality");
         int carCost;
-        if(carCondition.equals("No car"))
+        if(carCondition.contains("No"))
         {
             carCost = 0;
         }
-        else if(carQuality.equals("Above average car"))
+        else if(carQuality.contains("Above"))
         {
             carCost = carManager.getCarByQuality(carCondition).getHigh();
         }
-        else if(carQuality.equals("Below average car"))
+        else if(carQuality.contains("Below"))
         {
             carCost = carManager.getCarByQuality(carCondition).getLow();
         }
@@ -92,15 +100,28 @@ public class ResultServlet extends HttpServlet {
             carCost = carManager.getCarByQuality(carCondition).getMiddle();
         }
         double carInterest = (Double)session.getAttribute("aspirations_interest");
-        double monthlyCarExpenses = (carCost/(12*5))+(carCost*(carInterest/100));
+        int monthlyCarExpenses = (int)((carCost/(12*5))+(carCost*(carInterest/100)));
 
-        double discretionaryIncome = salaryPerMonth - studentLoanPayment - incomeTaxPerMonth - miscellaneous - monthlyCarExpenses;
+        //Post-grad housing
+        int postGradHousingPayment = getPostGradHousing(session);
+
+        //Other debt
+        double creditDebt = (Double)session.getAttribute("school_creditDebt");
+        double medicalDebt = (Double)session.getAttribute("school_medicalDebt");
+        double loanDebt = (Double)session.getAttribute("school_loanDebt");
+        int otherDebt = (int)(creditDebt + medicalDebt + loanDebt);
+
+        //Discretionary income
+        int discretionaryIncome = (int)(salaryPerMonth - totalLoanPayment - incomeTaxPerMonth - miscellaneous - monthlyCarExpenses - postGradHousingPayment);
 
         request.setAttribute("salary", salaryPerMonth);
-        request.setAttribute("studentLoans", studentLoanPayment);
+        request.setAttribute("studentLoans", totalLoanPayment);
         request.setAttribute("incomeTax", incomeTaxPerMonth);
         request.setAttribute("miscellaneous", miscellaneous);
         request.setAttribute("carExpenses", monthlyCarExpenses);
+        request.setAttribute("mortgageRent", postGradHousingPayment);
+        request.setAttribute("otherDebt", otherDebt);
+        request.setAttribute("savings", savings);
         request.setAttribute("discretionaryIncome", discretionaryIncome);
         request.getRequestDispatcher(getServletContext().getInitParameter("result")).forward(request, response);
     }
@@ -116,11 +137,30 @@ public class ResultServlet extends HttpServlet {
         if (housingSituation != null) {
             String s = new String(housingSituation);
             s = s.toLowerCase();
-            if (s.contains("Neumont")) {
-                totalHousingOrRent = RegionManager.NUEMONT_HOUSING_COST;
-            } else if (s.contains("Rent")) {
+            if (s.contains("neumont")) {
+                totalHousingOrRent = (RegionManager.NUEMONT_HOUSING_COST)/3;
+            } else if (s.contains("rent")) {
                 int utility = (Integer) session.getAttribute("lifestyle_bills");
                 int rent = (Integer) session.getAttribute("lifestyle_rent");
+                // If we are Apartment based
+                totalHousingOrRent = utility + rent;
+            }
+        }
+        return totalHousingOrRent;
+    }
+
+    public int getPostGradHousing(HttpSession session) {
+        int totalHousingOrRent = 0;// If you are commuting for free
+        String housingSituation = (String) session.getAttribute("aspirations_house");
+        if (housingSituation != null) {
+            String s = new String(housingSituation);
+            s = s.toLowerCase();
+            String region = (String) session.getAttribute("aspirations_region");
+            int utility = (Integer) session.getAttribute("lifestyle_bills");
+            if (s.contains("own")) {
+                totalHousingOrRent = (regionManager.getMortgageBasedOffRegionName(region)) + utility;
+            } else if (s.contains("rent")) {
+                int rent = regionManager.getRentBasedOffRegionName(region);
                 // If we are Apartment based
                 totalHousingOrRent = utility + rent;
             }
