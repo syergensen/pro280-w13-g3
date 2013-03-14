@@ -42,25 +42,21 @@
         </tr>
         <tr>
             <td>Mortgage/Rent</td>
-            <td>Mortgage/rent result acquired</td>
+            <td>$${mortgageRent eq null ? 0 : mortgageRent}/month</td>
             <td>
                 <form method="get" action="postGraduation.do"><input type="submit" value="Revise"></form>
             </td>
         </tr>
         <tr>
-            <td>Utilities</td>
-            <td>Utilities result acquired</td>
-        </tr>
-        <tr>
-            <td>Total Loans</td>
-            <td>Loan result acquired</td>
+            <td>Other Debt</td>
+            <td>$${otherDebt eq null ? 0 : otherDebt}</td>
             <td>
                 <form method="get" action="school.do"><input type="submit" value="Revise"></form>
             </td>
         </tr>
         <tr>
-            <td>In-School Savings</td>
-            <td>Savings result acquired</td>
+            <td>Savings Account Contribution</td>
+            <td>$${savings eq null ? 0 : savings}</td>
         </tr>
         <tr>
             <td>Discretionary Income</td>

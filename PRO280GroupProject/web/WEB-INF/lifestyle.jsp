@@ -51,6 +51,9 @@
         $<input type="number" name="otherSpending" value="${other_Spending eq null ? 0: other_Spending}" step="any"
                 required>
         <br/>
+        5. How much money is in you savings account that is not from loans?
+        $<input type="number" name="savings" value="${lifestyle_savings eq null ? 0 : lifestyle_savings}">
+        <br/>
         <input type="submit" value="Next Step">
     </form>
 </div>
