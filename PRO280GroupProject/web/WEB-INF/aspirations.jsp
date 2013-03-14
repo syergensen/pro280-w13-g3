@@ -41,12 +41,12 @@
                 <option value="${quality.itemName}" ${sessionScope.aspirations_carQuality eq quality.itemName ? 'selected' : ''}>${quality.itemName}</option>
             </c:forEach>
         </select>
-        Interest Payment: <input type="number" name="interest" min="0" step="any"
+        Interest Payment: <input type="number" name="interest" min="0" step="any" required
                                  value="${aspirations_interest eq null ? 0 : aspirations_interest}">%
         <br/>
         3. Please describe your preferred house:<br/>
         <c:forEach items="${housePreferences}" var="preference">
-            <input type="radio" name="house"
+            <input type="radio" name="house" required
                    value="${preference.itemName}" ${sessionScope.aspirations_house eq preference.itemName ? 'checked' : ''}>${preference.itemName}
             <br/>
         </c:forEach>

@@ -4,7 +4,7 @@
     </div>
     <a href="./start.do">
         <img title="Neumont University. Encoding the Next_" id="logo" name="logo"
-             alt="Neumont University. Encoding the Next_" src="http://www.neumont.edu/cmsimages/neumont-logo-home.jpg"></a>
+             alt="Neumont University. Encoding the Next_" src="http://branding.neumont.edu/cmsimages/neumont_logo_lg.gif"></a>
 </div>
 <div id="sm-c">
     <div id="menu1">

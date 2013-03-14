@@ -25,7 +25,7 @@
         <%--Change later to pull from database--%>
         1. What is your housing situation?<br/>
         <c:forEach items="${housingOptions}" var="option">
-            <input type="radio" name="housing"
+            <input type="radio" name="housing" required
                    value="${option.itemName}" ${lifestyle_housing eq option.itemName ? 'checked' : ''}>${option.itemName}
             <br/>
         </c:forEach>
@@ -52,7 +52,8 @@
                 required>
         <br/>
         5. How much money is in you savings account that is not from loans?
-        $<input type="number" name="savings" value="${lifestyle_savings eq null ? 0 : lifestyle_savings}">
+        $<input type="number" name="savings" value="${lifestyle_savings eq null ? 0 : lifestyle_savings}"
+                step="any" required>
         <br/>
         <input type="submit" value="Next Step">
     </form>

@@ -70,7 +70,9 @@ public class SchoolServlet extends HttpServlet {
 //            request.getRequestDispatcher(getServletContext().getInitParameter("lifestyle")).forward(request, response);
         }catch (NumberFormatException e){
             request.setAttribute("error", "Please enter a number.");
-            request.setAttribute("selectItems", selectItemManager.getSelectItems());
+            request.setAttribute("quarters", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("Quarters").getGroupId()));
+            request.setAttribute("programs", nuDegreeManager.getNuDegrees());
+            request.setAttribute("currentYear", Calendar.getInstance().get(Calendar.YEAR));
             request.getRequestDispatcher(getServletContext().getInitParameter("school")).forward(request, response);
         }
     }

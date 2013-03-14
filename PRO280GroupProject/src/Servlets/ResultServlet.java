@@ -48,7 +48,8 @@ public class ResultServlet extends HttpServlet {
         int salaryPerMonth = (int)(salary / 12);
 
         //Savings
-        int savings = (Integer) session.getAttribute("lifestyle_savings");
+        double savingsAmount = (Double) session.getAttribute("lifestyle_savings");
+        int savings = (int) savingsAmount;
 
         //Student loan
         double studentLoanPercent = (Double) session.getAttribute("school_loanPercent");

@@ -35,7 +35,7 @@ public class LifeStyleServlet extends HttpServlet {
             double rent = Double.parseDouble(request.getParameter("rent"));
             session.setAttribute("lifestyle_rent", rent);
             // UtilitiesBill
-            double bills = Double.parseDouble(request.getParameter("bills"));
+            int bills = (int)Double.parseDouble(request.getParameter("bills"));
             session.setAttribute("lifestyle_bills", bills);
 
             // Weekly food money spent
@@ -58,6 +58,7 @@ public class LifeStyleServlet extends HttpServlet {
 
         } catch (NumberFormatException e) {
             request.setAttribute("error", "Please enter a number.");
+            request.setAttribute("housingOptions", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("InSchoolHousing").getGroupId()));
             request.getRequestDispatcher(getServletContext().getInitParameter("lifestyle")).forward(request, response);
         }
     }

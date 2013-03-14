@@ -49,6 +49,11 @@ public class AspirationsServlet extends HttpServlet {
             request.getRequestDispatcher("/result.do").forward(request, response);
         }catch (NumberFormatException e){
             request.setAttribute("error", "Please enter a number.");
+            request.setAttribute("regions", regionManager.getRegions());
+            request.setAttribute("conditions", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("CarAge").getGroupId()));
+            request.setAttribute("economies", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("CarFuel").getGroupId()));
+            request.setAttribute("qualities", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("CarRating").getGroupId()));
+            request.setAttribute("housePreferences", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("AfterHousing").getGroupId()));
             request.getRequestDispatcher(getServletContext().getInitParameter("aspirations")).forward(request, response);
         }
     }

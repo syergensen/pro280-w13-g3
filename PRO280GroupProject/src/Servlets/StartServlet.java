@@ -27,6 +27,10 @@ public class StartServlet extends HttpServlet {
         if (request.getParameter("agree") != null) {
             response.sendRedirect("./school.do");
         }
+        else
+        {
+            response.sendRedirect("./start.do");
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
