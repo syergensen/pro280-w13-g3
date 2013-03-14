@@ -8,11 +8,6 @@
 <head>
     <title>Lifestyle</title>
     <link rel="stylesheet" href="css/Global/global.css"/>
-    <style>
-        .slider {
-            width: 300px;
-        }
-    </style>
 </head>
 <body>
 <c:import url="tags/HeaderBand.tag"/>
@@ -24,24 +19,32 @@
     <form method="post" action="lifestyle.do">
         <%--Change later to pull from database--%>
         1. What is your housing situation?<br/>
-        <c:forEach items="${housingOptions}" var="option">
-            <input type="radio" name="housing" required
-                   value="${option.itemName}" ${lifestyle_housing eq option.itemName ? 'checked' : ''}>${option.itemName}
-            <br/>
-        </c:forEach>
+
+        <p class="marginLeft">
+            <c:forEach items="${housingOptions}" var="option">
+                <input type="radio" name="housing" required
+                       value="${option.itemName}" ${lifestyle_housing eq option.itemName ? 'checked' : ''}> ${option.itemName}
+                <br/>
+            </c:forEach>
+        </p>
         If you rent:<br/>
 
-        a. How much do you spend monthly for rent?
-        $<input type="number" name="rent" value="${lifestyle_rent eq null ? 0 : lifestyle_rent}" min="0"
-                step="any" required><br/>
-        b. On average, how much per month is spent on utilities/bills?
-        $<input type="number" name="bills" value="${lifestyle_bills eq null ? 0 : lifestyle_bills}" min="0" step="any"
-                required>
-        </br>
+        <p class="marginLeft">
+            a. How much do you spend monthly for rent?
+            $<input type="number" name="rent" value="${lifestyle_rent eq null ? 0 : lifestyle_rent}" min="0"
+                    step="any" required><br/>
+            b. On average, how much per month is spent on utilities/bills?
+            $<input type="number" name="bills" value="${lifestyle_bills eq null ? 0 : lifestyle_bills}" min="0"
+                    step="any"
+                    required>
+        </p>
         2. On average, how money do you spend on food every week?<br/>
-        $<input type="number" name="weeklyFoodMoney" value="${weekly_food_budget eq null ? 0 : weekly_food_budget}"
-                step="any" required>
-        </br>
+
+        <p class="marginLeft">
+            $<input type="number" name="weeklyFoodMoney"
+                    value="${weekly_food_budget eq null ? 0 : weekly_food_budget}"
+                    step="any" required>
+        </p>
         <%--Insert slider ranging 0-7--%>
         3. How much money do you spend on entertainment such as movies or video games each month?
         $<input type="number" name="gameSpending" value="${lifestyle_gameSpending eq null ? 0 : lifestyle_gameSpending}"

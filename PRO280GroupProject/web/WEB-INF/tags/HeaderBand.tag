@@ -13,7 +13,6 @@
             <li><a href="./school.do">School</a></li>
             <li><a href="./lifestyle.do">Housing & Lifestyle Programs</a></li>
             <li><a href="./postGraduation.do">Post-Graduation</a></li>
-            <li><a href="./result.do">Results</a></li>
         </ul>
         <ul class="nav" style="float: right;">
             <li><a id="stuLogin" href="./logout.do">Logout</a></li>

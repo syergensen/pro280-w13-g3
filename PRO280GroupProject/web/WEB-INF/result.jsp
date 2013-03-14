@@ -18,53 +18,61 @@
     </form>
     <table>
         <tr>
-            <td>Salary</td>
-            <td>$${salary eq null ? 0 : salary}/month</td>
+            <td class="BoldMe">Salary</td>
+            <td>......</td>
+            <td class="marginLeft">$${salary eq null ? 0 : salary}/month</td>
         </tr>
         <tr>
-            <td>Student Loan</td>
-            <td>$${studentLoans eq null ? 0: studentLoans}/month</td>
+            <td class="BoldMe">Student Loan</td>
+            <td>......</td>
+            <td class="marginLeft">$${studentLoans eq null ? 0: studentLoans}/month</td>
         </tr>
         <tr>
-            <td>Income Tax</td>
-            <td>$${incomeTax eq null ? 0 : incomeTax}/month</td>
+            <td class="BoldMe">Income Tax</td>
+            <td>......</td>
+            <td class="marginLeft">$${incomeTax eq null ? 0 : incomeTax}/month</td>
         </tr>
         <tr>
-            <td>Misc. Expenses</td>
-            <td>$${miscellaneous eq null ? 0 : miscellaneous}/month</td>
+            <td class="BoldMe">Misc. Expenses</td>
+            <td>......</td>
+            <td class="marginLeft">$${miscellaneous eq null ? 0 : miscellaneous}/month</td>
         </tr>
         <tr>
-            <td>Car Expenses</td>
-            <td>$${carExpenses eq null ? 0 : carExpenses}/month</td>
+            <td class="BoldMe">Car Expenses</td>
+            <td>......</td>
+            <td class="marginLeft">$${carExpenses eq null ? 0 : carExpenses}/month</td>
             <td>
                 <form method="get" action="postGraduation.do"><input type="submit" value="Revise"></form>
             </td>
         </tr>
         <tr>
-            <td>Mortgage/Rent</td>
-            <td>$${mortgageRent eq null ? 0 : mortgageRent}/month</td>
+            <td class="BoldMe">Mortgage/Rent</td>
+            <td>......</td>
+            <td class="marginLeft">$${mortgageRent eq null ? 0 : mortgageRent}/month</td>
             <td>
                 <form method="get" action="postGraduation.do"><input type="submit" value="Revise"></form>
             </td>
         </tr>
         <tr>
-            <td>Other Debt</td>
-            <td>$${otherDebt eq null ? 0 : otherDebt}</td>
+            <td class="BoldMe">Other Debt</td>
+            <td>......</td>
+            <td class="marginLeft">$${otherDebt eq null ? 0 : otherDebt}</td>
             <td>
                 <form method="get" action="school.do"><input type="submit" value="Revise"></form>
             </td>
         </tr>
         <tr>
-            <td>Savings Account Contribution</td>
-            <td>$${savings eq null ? 0 : savings}</td>
+            <td class="BoldMe">Savings Account Contribution</td>
+            <td>......</td>
+            <td class="marginLeft">$${savings eq null ? 0 : savings}</td>
         </tr>
         <tr>
-            <td>Discretionary Income</td>
+            <td class="BoldMe">Discretionary Income</td>
+            <td>......</td>
             <%--subtract other results--%>
-            <td>$${discretionaryIncome}/month</td>
+            <td class="marginLeft">$${discretionaryIncome}/month</td>
         </tr>
     </table>
-    <input type="submit" value="Print">
 </div>
 </body>
 </html>

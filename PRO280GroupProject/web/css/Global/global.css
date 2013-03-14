@@ -1,5 +1,5 @@
 body {
-    margin:0;
+    margin: 0;
 }
 
 #sm-c {
@@ -9,6 +9,7 @@ body {
     position: relative;
     z-index: 10;
 }
+
 img {
     border: 0px;
 }
@@ -154,11 +155,12 @@ label {
 }
 
 td {
-    padding: 0px;
+    padding: 20px;
 }
 
 input {
     margin: 3px 0;
+    padding-bottom: 5px;
 }
 
 /**********************************/
@@ -167,14 +169,25 @@ input {
 
 .cssGuardian {
     float: left;
-    padding: 40px;
+    margin: 40px;
+    margin-top: 10px;
+    padding: 10px;
+    padding-top: 10px;
 }
 
 .termsAndConditionsBorder {
     border: solid;
     border-width: 1px;
-    width: 50%;
-    height: 45%;
+    width: 822;
+    height: auto;
     font-family: Verdana;
     font-size: 18;
+}
+
+.marginLeft {
+    margin-left: 20px;
+}
+
+.BoldMe {
+    font-weight: bold;
 }
