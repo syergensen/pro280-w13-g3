@@ -51,7 +51,7 @@
                 step="any" required>
         <br/>
         4. Money spent on other things not mentioned above per month:
-        $<input type="number" name="otherSpending" value="${other_Spending eq null ? 0: other_Spending}" step="any"
+        $<input type="number" name="otherSpending" value="${other_spending eq null ? 0: other_spending}" step="any"
                 required>
         <br/>
         5. How much money is in you savings account that is not from loans?

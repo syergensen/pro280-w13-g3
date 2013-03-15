@@ -22,7 +22,7 @@
             <select name="region">
                 <%--${aspirations_region eq loopVar(rename) ? 'checked' : ''}--%>
                 <c:forEach items="${regions}" var="region">
-                    <option value="${region.regionName}" ${sessionScope.aspirations_region eq region ? 'selected' : ''}>${region.regionName}</option>
+                    <option value="${region.regionName}" ${sessionScope.aspirations_region eq region.regionName ? 'selected' : ''}>${region.regionName}</option>
                 </c:forEach>
             </select>
         </p>

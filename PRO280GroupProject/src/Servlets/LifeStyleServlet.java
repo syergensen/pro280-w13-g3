@@ -32,7 +32,7 @@ public class LifeStyleServlet extends HttpServlet {
         session.setAttribute("lifestyle_housing", request.getParameter("housing"));
         try {
             // MonthlyRent
-            double rent = Double.parseDouble(request.getParameter("rent"));
+            int rent = (int)Double.parseDouble(request.getParameter("rent"));
             session.setAttribute("lifestyle_rent", rent);
             // UtilitiesBill
             int bills = (int)Double.parseDouble(request.getParameter("bills"));

@@ -63,7 +63,7 @@ public class ResultServlet extends HttpServlet {
         double grants = (Double)session.getAttribute("school_grants");
         double schoolInterest = (Double)session.getAttribute("school_interest");
         double initialSchoolPay = (quarters*7200)-grants-savings;
-        double studentLoanPayment = (((initialSchoolPay) / 120)+(initialSchoolPay*(schoolInterest/100))) * (studentLoanPercent / 100);
+        double studentLoanPayment = (((initialSchoolPay)+(initialSchoolPay*(schoolInterest/100))) / 120) * (studentLoanPercent / 100);
         double studentHousingPayment = getStudentHousingRent(session);
         int totalLoanPayment = (int)(studentLoanPayment + studentHousingPayment);
 
@@ -133,7 +133,7 @@ public class ResultServlet extends HttpServlet {
     }
 
     public int getStudentHousingRent(HttpSession session) {
-        int totalHousingOrRent = 0;// If you are commuting for free
+        int totalHousingOrRent = 0;// If you are living for free
         String housingSituation = (String) session.getAttribute("lifestyle_housing");
         if (housingSituation != null) {
             String s = new String(housingSituation);
