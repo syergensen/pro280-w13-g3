@@ -1,6 +1,6 @@
 <div id="hdr">
     <div id="hdr-btns">
-        <h1>Neumont Budgeting Assistant</h1>
+        <h1>Budgeting Assistant</h1>
     </div>
     <a href="./start.do">
         <img title="Neumont University. Encoding the Next_" id="logo" name="logo"
