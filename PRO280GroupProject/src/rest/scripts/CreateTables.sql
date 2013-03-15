@@ -7,7 +7,7 @@ CREATE TABLE `app_properties_table` (
 delimiter $$
 CREATE TABLE `cars` (
   `carId` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(45) NOT NULL,
+  `quality` varchar(45) NOT NULL,
   `high` int(11) NOT NULL,
   `middle` int(11) NOT NULL,
   `low` int(11) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE `groups` (
 delimiter $$
 CREATE TABLE `mileage` (
   `mileageId` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(45) NOT NULL,
+  `quality` varchar(45) NOT NULL,
   `cost` int(11) NOT NULL,
   PRIMARY KEY (`mileageId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1$$
