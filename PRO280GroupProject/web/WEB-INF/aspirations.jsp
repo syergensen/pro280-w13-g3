@@ -18,7 +18,10 @@
     <c:if test="${requestScope.error ne null}">${requestScope.error}<br/></c:if>
     <form method="post" action="postGraduation.do">
         <p>
+
+
             1. After graduating Neumont what is your preferred region to live in the United States:
+
             <select name="region">
                 <%--${aspirations_region eq loopVar(rename) ? 'checked' : ''}--%>
                 <c:forEach items="${regions}" var="region">
@@ -27,6 +30,8 @@
             </select>
         </p>
         <p>
+
+
             2. Please describe your preferred car:<br/>
 
         <p class="marginLeft">
@@ -49,6 +54,8 @@
                                                               value="${aspirations_interest eq null ? 0 : aspirations_interest}">%</span>
         </p>
         </p>
+
+
         3. Please describe your preferred house:
 
         <p class="marginLeft">
@@ -60,6 +67,8 @@
         </p>
         <input type="submit" value="Finish">
     </form>
+
 </div>
+
 </body>
 </html>

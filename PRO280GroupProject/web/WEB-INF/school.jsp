@@ -16,20 +16,25 @@
     </style>
 <body>
 <c:import url="tags/HeaderBand.tag"/>
+<!--Start of CSS Guardian-->
 <div class="cssGuardian">
+
     <h2><i>Please answer the following questions about your school and funding:</i></h2>
 
     <c:if test="${requestScope.error ne null}">${requestScope.error}<br/></c:if>
     <form method="post" action="school.do">
+        <%--//============================================================================================================================--%>
+        <%--// Section: When You Start attending Neumont Section:--%>
+        <%--//============================================================================================================================--%>
         <p>
-
             1. When did you start attending Neumont:
 
-        <p class="marginLeft"><select name="quarter">
-            <c:forEach items="${quarters}" var="quarter">
-                <option value="${quarter.itemName}" ${sessionScope.school_quarter eq quarter.itemName ? 'selected' : ''}>${quarter.itemName}</option>
-            </c:forEach> 8
-        </select>
+        <p class="marginLeft">
+            <select name="quarter">
+                <c:forEach items="${quarters}" var="quarter">
+                    <option value="${quarter.itemName}" ${sessionScope.school_quarter eq quarter.itemName ? 'selected' : ''}>${quarter.itemName}</option>
+                </c:forEach> 8
+            </select>
             <select name="year">
                 <c:forEach var="year" begin="${currentYear - 10}" end="${currentYear}">
                     <option value="${year}" ${sessionScope.school_year eq year ? 'selected' : ''}>${year}</option>
@@ -37,6 +42,10 @@
             </select>
         </p>
         </p>
+        <%--//============================================================================================================================--%>
+        <%--// End Section: When you Start attending Neumont Section --%>
+        <%--// Section 2: Programmed Enrolled in--%>
+        <%--//============================================================================================================================--%>
         <p>2. Which program are you enrolled in:<br/>
 
         <p class="marginLeft">
@@ -47,6 +56,11 @@
             </select>
         </p>
         </p>
+
+        <%--//============================================================================================================================--%>
+        <%--// End Section 2: Programmed Enrolled in--%>
+        <%--// Section: 3 How many additional quarters do you expect to attend Neumont--%>
+        <%--//============================================================================================================================--%>
         <p>3. How many additional quarters do you expect to attend Neumont:<br/>
 
         <p class="marginLeft">Full-time:
@@ -57,7 +71,11 @@
                    required>
         </p>
         </p>
-        <%--Change later to pull from database--%>
+
+        <%--//============================================================================================================================--%>
+        <%--// End Section 3: How many additional quarters do you expect to attend Neumont
+        <%--// Section 4: Please select the ratio of funding provided loans versus out-of-pocket contributions:--%>
+        <%--//============================================================================================================================--%>
         <p>4. Please select the ratio of funding provided loans versus out-of-pocket contributions:<br/>
             <label for="SliderAmount">Loan Percentage: </label>
             <input type="text" name="loanPercent" id="SliderAmount"
@@ -75,25 +93,44 @@
                    step="any" required>%
         </p>
         </p>
+
+        <%--//============================================================================================================================--%>
+        <%--// End Section 4: Please select the ratio of funding provided loans versus out-of-pocket contributions:--%>
+        <%--// Section 5: How much (if any) outstanding credit card debt do you have?
+        <%--//============================================================================================================================--%>
         <p>5. How much (if any) outstanding credit card debt do you have?
             $<input type="number" name="creditDebt" value="${school_creditDebt eq null ? 0 : school_creditDebt}"
                     min="0.0"
                     step="any" required>
         </p>
 
+        <%--//============================================================================================================================--%>
+        <%--// END Section 5: How much (if any) outstanding credit card debt do you have?
+        <%--// Section 6:  How much (if any) outstanding medical debt do you have?
+        <%--//============================================================================================================================--%>
         <p>6. How much (if any) outstanding medical debt do you have?
             $<input type="number" name="medicalDebt" value="${school_medicalDebt eq null ? 0 : school_medicalDebt}"
                     min="0.0"
                     step="any" required>
         </p>
 
+        <%--//============================================================================================================================--%>
+        <%--// End Section: 6  How much (if any) outstanding medical debt do you have?
+        <%--// Section: 7 How much (if any) outstanding loan debt do you have?
+        <%--//============================================================================================================================--%>
+
         <p>7. How much (if any) outstanding loan debt (school, car) do you have?
             $<input type="number" name="loanDebt" value="${school_loanDebt eq null ? 0 : school_loanDebt}" min="0.0"
                     step="any" required>
         </p>
+
+        <%--//============================================================================================================================--%>
+        <%--// EndSection: 7 How much (if any) outstanding loan debt do you have?
+        <%--//============================================================================================================================--%>
         <input type="submit" value="Next Step">
 
         <%--Script pages--%>
+        <%--Activates the Slider, uses Javascript and JQuery so it should work in all browsers --%>
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
         <script>
@@ -109,5 +146,6 @@
         </script>
     </form>
 </div>
+<!--//End of CSS Guardian-->
 </body>
 </html>
