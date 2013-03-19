@@ -9,7 +9,7 @@ import java.io.Serializable;
  * User: jflores
  * Date: 3/7/13
  * Time: 12:43 AM
- * This class well serves as the primary key for the salaries object, I just want to test it out
+ * This class well serves as the primary key for the salaries object
  */
 @Embeddable
 public class SalaryPk implements Serializable {

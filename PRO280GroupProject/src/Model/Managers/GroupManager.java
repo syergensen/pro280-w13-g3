@@ -13,6 +13,8 @@ import java.util.List;
  * Created with IntelliJ IDEA.
  * User: cknox
  * Date: 3/8/13
+ *
+ * Manager for the Group entity
  */
 @Stateless
 @LocalBean
@@ -21,6 +23,7 @@ public class GroupManager {
     @PersistenceContext
     private EntityManager em;
 
+    //gets a group by its name
     public Group getGroup(String groupName) {
         TypedQuery<Group> query = em.createNamedQuery(Group.GROUP_BY_GROUP_NAME_QUERY, Group.class);
         query.setParameter("name", groupName);
@@ -30,6 +33,7 @@ public class GroupManager {
         return null;
     }
 
+    //saves a group
     public void saveGroup(Group group) {
         em.persist(group);
     }

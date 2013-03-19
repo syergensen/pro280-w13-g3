@@ -10,12 +10,14 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 
+//Manager for the SelectGroup entity
 @LocalBean
 @Stateless
 public class SelectGroupManager {
     @PersistenceContext
     EntityManager em;
 
+    //gets selectGroup by description
     public SelectGroup getSelectGroupByDescription(String description)
     {
         TypedQuery<SelectGroup> selectGroupQuery = em.createQuery("select s from SelectGroup s where s.description = :description", SelectGroup.class);
@@ -23,12 +25,14 @@ public class SelectGroupManager {
         return selectGroupQuery.getSingleResult();
     }
 
+    //gets all selectGroups
     public List<SelectGroup> getSelectGroups()
     {
         TypedQuery<SelectGroup> selectGroupQuery = em.createQuery("select s from SelectGroup s", SelectGroup.class);
         return selectGroupQuery.getResultList();
     }
 
+    //gets a selectGroup by id
     public SelectGroup getSelectGroup(int id)
     {
         return em.find(SelectGroup.class, id);

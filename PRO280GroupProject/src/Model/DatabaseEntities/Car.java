@@ -6,6 +6,8 @@ import javax.persistence.*;
  * Created with IntelliJ IDEA.
  * User: cknox
  * Date: 3/11/13
+ *
+ * Cars entity consists of the car type(quality) and price for quality(high, middle, low)
  */
 @Entity
 @Table(name = "cars")
@@ -15,6 +17,7 @@ public class Car {
     @Column(name = "carId", nullable = false)
     private int carId;
 
+    //Called quality instead of type because type is reserved
     @Column(name = "quality", nullable = false)
     private String quality;
 

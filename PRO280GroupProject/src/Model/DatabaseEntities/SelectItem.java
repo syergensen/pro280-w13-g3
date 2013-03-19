@@ -6,7 +6,8 @@ import javax.persistence.*;
  * User: jflores
  * Date: 3/5/13
  * Time: 6:30 PM
- * I Can destroy things with my mind
+ *
+ * SelectItem consists of specific items in the select groups
  */
 
 @Entity

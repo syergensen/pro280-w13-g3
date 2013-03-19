@@ -13,6 +13,8 @@ import java.util.List;
  * Created with IntelliJ IDEA.
  * User: cknox
  * Date: 3/11/13
+ *
+ * Manager for the Mileage entity
  */
 @Stateless
 @LocalBean
@@ -20,6 +22,7 @@ public class MileageManager {
     @PersistenceContext
     EntityManager em;
 
+    //gets all mileages
     public List<Mileage> getMileages()
     {
         TypedQuery<Mileage> query = em.createQuery("select m from Mileage m", Mileage.class);

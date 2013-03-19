@@ -9,7 +9,8 @@ import javax.persistence.Table;
  * User: jflores
  * Date: 3/6/13
  * Time: 5:56 PM
- * Classics
+ *
+ * Regions entity consists of the region name, rent cost, and mortgage cost
  */
 @Entity(name = "Regions")
 @Table(name = "Regions")

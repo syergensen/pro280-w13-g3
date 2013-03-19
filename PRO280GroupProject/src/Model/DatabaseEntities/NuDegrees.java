@@ -9,7 +9,8 @@ import javax.persistence.Table;
  * User: jflores
  * Date: 3/6/13
  * Time: 6:00 PM
- * All your grades are belong to us.
+ *
+ * NuDegrees entity consists of the degree and the number of quarters it consists of
  */
 @Entity
 @Table(name = "NuDegrees")

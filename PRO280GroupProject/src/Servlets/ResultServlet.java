@@ -19,7 +19,7 @@ import java.io.IOException;
  * A servlet meant to set up and receive the post of the Results.jsp page
  * User: Jflores
  * Date: 2/27/13
- * Time: 6:40 PM   -- Created
+ * Time: 6:40 PM
  */
 @WebServlet("/result.do")
 public class ResultServlet extends HttpServlet {
@@ -101,7 +101,7 @@ public class ResultServlet extends HttpServlet {
             carCost = carManager.getCarByQuality(carCondition).getMiddle();
         }
         double carInterest = (Double)session.getAttribute("aspirations_interest");
-        int monthlyCarExpenses = (int)((carCost/(12*5))+(carCost*(carInterest/100)));
+        int monthlyCarExpenses = (int)((carCost/(12* CarManager.CAR_PAYMENT_PERIOD))+(carCost*(carInterest/100)));
 
         //Post-grad housing
         int postGradHousingPayment = getPostGradHousing(session);

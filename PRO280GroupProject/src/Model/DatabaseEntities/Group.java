@@ -8,6 +8,8 @@ import java.util.Set;
  * Created with IntelliJ IDEA.
  * User: cknox
  * Date: 3/8/13
+ *
+ * Group entity is used for authentication
  */
 @Entity
 @Table(name = "groups")

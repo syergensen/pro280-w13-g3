@@ -6,6 +6,8 @@ import javax.persistence.*;
  * Created with IntelliJ IDEA.
  * User: cknox
  * Date: 3/11/13
+ *
+ * Mileage entity consists of the mileage type(quality) and cost
  */
 @Entity
 @Table(name = "mileage")
@@ -15,6 +17,7 @@ public class Mileage {
     @Column(name = "mileageId", nullable = false)
     private int mileageId;
 
+    //Called quality instead of type because type is reserved
     @Column(name = "quality", nullable = false)
     private String quality;
 

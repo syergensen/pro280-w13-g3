@@ -7,7 +7,8 @@ import java.util.List;
  * User: jflores
  * Date: 3/5/13
  * Time: 6:23 PM
- * WAZ UP THIS IS MY CREATION DAWG!!! IT IS A BEAN SO COMMENTS ARE USELESS
+ *
+ * selectGroup entity consists of different select groups such as CarFuel
  */
 @Entity
 @Table(name = "selectGroup")

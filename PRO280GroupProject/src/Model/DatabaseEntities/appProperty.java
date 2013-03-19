@@ -2,6 +2,7 @@ package Model.DatabaseEntities;
 
 import javax.persistence.*;
 
+//appProperty entity consists of files and their contents
 @Entity
 @Table(name = "app_properties_table")
 public class appProperty {

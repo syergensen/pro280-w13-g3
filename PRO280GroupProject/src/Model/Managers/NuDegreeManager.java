@@ -14,6 +14,8 @@ import java.util.List;
  * User: jflores
  * Date: 3/6/13
  * Time: 6:04 PM
+ *
+ * Manager for the NuDegree entity
  */
 @LocalBean
 @Stateless
@@ -21,6 +23,7 @@ public class NuDegreeManager {
     @PersistenceContext
     EntityManager em;
 
+    //get quarters by degree
     public NuDegrees getQuarters(String degree)
     {
         TypedQuery<NuDegrees> query = em.createQuery("select d from NuDegrees d where d.degree = :degree", NuDegrees.class);
@@ -28,6 +31,7 @@ public class NuDegreeManager {
         return query.getSingleResult();
     }
 
+    //gets all degrees
     public List<NuDegrees> getNuDegrees() {
         TypedQuery<NuDegrees> allDegQuery = em.createQuery("Select d from NuDegrees d", NuDegrees.class);
         return allDegQuery.getResultList();

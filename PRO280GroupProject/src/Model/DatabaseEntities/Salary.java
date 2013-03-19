@@ -9,7 +9,8 @@ import javax.persistence.Table;
  * User: jflores
  * Date: 3/7/13
  * Time: 12:43 AM
- * Collect your wages, also I call b.s on BSTM's wages
+ *
+ * Salary entity consists of a compound key using degree and region, the salary, and tax bracket it falls in
  */
 @Entity(name = "Salaries")
 @Table(name = "Salaries")

@@ -13,6 +13,8 @@ import java.util.List;
  * Created with IntelliJ IDEA.
  * User: cknox
  * Date: 3/11/13
+ *
+ * Manager for the Car entity
  */
 @Stateless
 @LocalBean
@@ -22,6 +24,7 @@ public class CarManager {
 
     public static final int CAR_PAYMENT_PERIOD = 5;
 
+    //gets a car by its quality
     public Car getCarByQuality(String quality)
     {
         TypedQuery<Car> query = em.createQuery("select c from Car c where c.quality = :quality", Car.class);
@@ -29,6 +32,7 @@ public class CarManager {
         return query.getSingleResult();
     }
 
+    //gets all cars
     public List<Car> getCars()
     {
         TypedQuery<Car> query = em.createQuery("select c from Car c", Car.class);
