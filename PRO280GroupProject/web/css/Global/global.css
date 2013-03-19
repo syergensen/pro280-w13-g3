@@ -1,3 +1,10 @@
+/**********************************/
+/*
+    Copied and spice together from the Neumont Homepage Website,
+    I highly recommend you just create your own, or actually give the appropriate attributes and
+    structures per page and JSP to make the regular Neumont Global work
+*/
+/**********************************/
 body {
     margin: 0;
 }
@@ -167,6 +174,13 @@ input {
 /* END overrides to R7 formatting */
 /**********************************/
 
+/**********************************/
+/* This is JFlores, and CKnot's own css all above is spliced from Neumont's homepage as of 2013 March*/
+/**********************************/
+
+/*Allows our own Css to give us control over our divs and spans,
+Basically without this all our components Under the HEADER TAG would be left-floated and nothing we could do would fix it.
+So Yeah this is a hack, but hey it worked :) */
 .cssGuardian {
     float: left;
     margin: 40px;
@@ -191,3 +205,7 @@ input {
 .BoldMe {
     font-weight: bold;
 }
+
+/**********************************/
+/* End of JFlores and CKnot's Css*/
+/**********************************/

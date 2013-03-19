@@ -1,7 +1,5 @@
 package Servlets;
 
-import Model.DatabaseEntities.SelectGroup;
-import Model.DatabaseEntities.SelectItem;
 import Model.Managers.RegionManager;
 import Model.Managers.SelectGroupManager;
 import Model.Managers.SelectItemManager;
@@ -35,32 +33,31 @@ public class AspirationsServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        //PreferredRegion
+        //====== PreferredRegion
         session.setAttribute("aspirations_region", request.getParameter("region"));
-        //PreferredCarState
+        //====== PreferredCarState
         session.setAttribute("aspirations_carCondition", request.getParameter("carCondition"));
         session.setAttribute("aspirations_carFuelEconomy", request.getParameter("carFuelEconomy"));
         session.setAttribute("aspirations_carQuality", request.getParameter("carQuality"));
-        try{
+        try {
             double interest = Double.parseDouble(request.getParameter("interest"));
             session.setAttribute("aspirations_interest", interest);
-            //PrefferedLivingCondition
+            //====== PreferredLivingCondition
             session.setAttribute("aspirations_house", request.getParameter("house"));
             request.getRequestDispatcher("/result.do").forward(request, response);
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             request.setAttribute("error", "Please enter a number.");
-            request.setAttribute("regions", regionManager.getRegions());
-            request.setAttribute("conditions", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("CarAge").getGroupId()));
-            request.setAttribute("economies", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("CarFuel").getGroupId()));
-            request.setAttribute("qualities", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("CarRating").getGroupId()));
-            request.setAttribute("housePreferences", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("AfterHousing").getGroupId()));
-            request.getRequestDispatcher(getServletContext().getInitParameter("aspirations")).forward(request, response);
+            SetUpGetAttributes(request, response);
         }
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    /**
+     * Sets up the attributes that the "get" method for this class would have used, however since attributes do not persist through re-directs we
+     * settled for getRequestDispatcher.
+     */
+    private void SetUpGetAttributes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // May have to request attribute:
-        // PrefferedRegions, CarUsed, CarFuelEconomies, CarRating,
+        // PreferredRegions, CarUsed, CarFuelEconomies, CarRating,
         // and LivingConditionOptions.
         request.setAttribute("regions", regionManager.getRegions());
         request.setAttribute("conditions", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("CarAge").getGroupId()));
@@ -68,6 +65,10 @@ public class AspirationsServlet extends HttpServlet {
         request.setAttribute("qualities", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("CarRating").getGroupId()));
         request.setAttribute("housePreferences", selectItemManager.getSelectItemsByGroup(selectGroupManager.getSelectGroupByDescription("AfterHousing").getGroupId()));
         request.getRequestDispatcher(getServletContext().getInitParameter("aspirations")).forward(request, response);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        SetUpGetAttributes(request, response);
 
     }
 }

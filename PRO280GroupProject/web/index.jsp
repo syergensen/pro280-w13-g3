@@ -7,11 +7,7 @@
 <html>
 <head>
     <title>Start</title>
-    <link rel="stylesheet" href="css/Global/global.css"
-    <%--<link rel="stylesheet" href="css/NeumontWebSite/global.css"/>--%>
-    <%--<link rel="stylesheet" href="css/NeumontWebSite/forms.css"/>--%>
-    <%--<link rel="stylesheet" href="css/NeumontWebSite/style1.css"/>--%>
-    <%--<link rel="stylesheet" href="http://www.neumont.edu/cmscss/content.css"/>--%>
+    <link rel="stylesheet" href="css/Global/global.css">
 </head>
 <body>
 <c:import url="WEB-INF/tags/HeaderBand.tag"/>

@@ -1,16 +1,16 @@
 
 INSERT INTO app_properties_table values('agreement',
-'Terms and Conditions – NUBA<br/>
+'<h1>Terms and Conditions – NUBA</h1><br/><br/>
  
-This tool provides estimations of salaries, taxes, and other expenses.  It is not intended to be used as a guarantee of salary or income amounts.  The amounts used within this tool are based on U.S. Bureau of Labor Statistics information gathered from the Occupational Employment Statistics database.  This information may be outdated or contain numbers that are higher (or lower) than the average starting salary.<br/>
+This tool provides estimations of salaries, taxes, and other expenses.  It is not intended to be used as a guarantee of salary or income amounts.  The amounts used within this tool are based on U.S. Bureau of Labor Statistics information gathered from the Occupational Employment Statistics database.  This information may be outdated or contain numbers that are higher (or lower) than the average starting salary.<br/><br/>
  
-This tool is intended solely for the use of current Neumont University students and their advisors.  Access by individuals outside of the Neumont University community is prohibited.<br/>
+This tool is intended solely for the use of current Neumont University students and their advisors.  Access by individuals outside of the Neumont University community is prohibited.<br/><br/>
  
-The functionality of this tool is provided “as-is”.<br/>
+The functionality of this tool is provided “as-is”.<br/><br/>
  
-Data entered into this tool is temporarily stored on Neumont University servers.  The user session and relevant information will kept on the server for time up to one hour after leaving the site, unless the user logs out.  No personally identifiable information is collected or stored within the tool.<br/>
+Data entered into this tool is temporarily stored on Neumont University servers.  The user session and relevant information will kept on the server for time up to one hour after leaving the site, unless the user logs out.  No personally identifiable information is collected or stored within the tool.<br/><br/>
  
-Questions regarding the information contained in this tool may be directed to the Neumont University Career Services department.  <br/>
+<b>Questions regarding the information contained in this tool may be directed to the Neumont University Career Services department.</b><br/><br/>
 '
 );
 
@@ -112,17 +112,16 @@ Insert into Regions values('West',976,1167);
 	Insert into selectItem(itemName, groupId) values('Summer',6);
 -- /Group Selections --
 
--- SQL Queries --
-
-Select * from app_properties_table;
-Select * from cars;
-Select * from mileage;
-Select * from NuDegrees;
-Select * from Regions;
-Select * from selectGroup;
-Select * from selectItem;
-Select * from Salaries;
-Select * from users;
-Select * from users_groups;
-Select * from groups;
-Select * from vlogin;
+-- SQL Queries -- uncomment in order to test values in the database
+-- Select * from app_properties_table;
+-- Select * from cars;
+-- Select * from mileage;
+-- Select * from NuDegrees;
+-- Select * from Regions;
+-- Select * from selectGroup;
+-- Select * from selectItem;
+-- Select * from Salaries;
+-- Select * from users;
+-- Select * from users_groups;
+-- Select * from groups;
+-- Select * from vlogin;

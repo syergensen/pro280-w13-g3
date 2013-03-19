@@ -17,7 +17,7 @@
 
     <c:if test="${requestScope.error ne null}">${requestScope.error}<br/></c:if>
     <form method="post" action="lifestyle.do">
-        <%--Change later to pull from database--%>
+
         1. What is your housing situation?<br/>
 
         <p class="marginLeft">
@@ -27,6 +27,7 @@
                 <br/>
             </c:forEach>
         </p>
+
         If you rent:<br/>
 
         <p class="marginLeft">
@@ -38,6 +39,7 @@
                     step="any"
                     required>
         </p>
+
         2. On average, how money do you spend on food every week?<br/>
 
         <p class="marginLeft">
@@ -45,15 +47,17 @@
                     value="${weekly_food_budget eq null ? 0 : weekly_food_budget}"
                     step="any" required>
         </p>
-        <%--Insert slider ranging 0-7--%>
+
         3. How much money do you spend on entertainment such as movies or video games each month?
         $<input type="number" name="gameSpending" value="${lifestyle_gameSpending eq null ? 0 : lifestyle_gameSpending}"
                 step="any" required>
         <br/>
+
         4. Money spent on other things not mentioned above per month:
         $<input type="number" name="otherSpending" value="${other_spending eq null ? 0: other_spending}" step="any"
                 required>
         <br/>
+
         5. How much money is in you savings account that is not from loans?
         $<input type="number" name="savings" value="${lifestyle_savings eq null ? 0 : lifestyle_savings}"
                 step="any" required>
